@@ -11,15 +11,7 @@ import {
 } from "lucide-react";
 
 const categories = [
-  { icon: Zap, label: "Utilitários", count: 25, active: true },
-  { icon: Camera, label: "Foto e Vídeo", count: 13 },
-  { icon: MessageCircle, label: "Redes Sociais", count: 12 },
-  { icon: Heart, label: "Saúde", count: 10 },
-  { icon: Briefcase, label: "Essenciais", count: 8 },
-  { icon: Briefcase, label: "Produtividade", count: 3 },
-  { icon: Watch, label: "Watch", count: 2 },
-  { icon: Download, label: "Download", count: 1 },
-  { icon: Mail, label: "Mensagens", count: 1 },
+  { icon: Zap, label: "Poupa.ai", count: 5, active: true },
 ];
 
 const Sidebar = () => {
