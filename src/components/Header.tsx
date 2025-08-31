@@ -14,9 +14,9 @@ const Header = () => {
               className="w-8 h-8 rounded-lg"
             />
             <h1 className="text-xl font-bold text-foreground">
-              <span className="text-ios-blue">Galeria de</span>
+              <span className="text-ios-blue">Galeria de Atalhos</span>
               <br />
-              <span className="text-youtube-red">Atalhos</span>
+              <span className="text-youtube-red">Por Fernando Carvalho</span>
             </h1>
           </div>
           
