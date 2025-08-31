@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 
 const Header = () => {
   return (
-    <header className="bg-white border-b border-border shadow-sm">
+    <header className="bg-card border-b border-border shadow-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
