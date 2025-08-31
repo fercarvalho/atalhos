@@ -52,6 +52,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				'ios-blue': 'hsl(var(--ios-blue))',
+				'whatsapp-green': 'hsl(var(--whatsapp-green))',
+				'instagram-purple': 'hsl(var(--instagram-purple))',
+				'youtube-red': 'hsl(var(--youtube-red))',
+				'premium-gold': 'hsl(var(--premium-gold))',
+				'ai-cyan': 'hsl(var(--ai-cyan))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -62,6 +68,23 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'gradient-whatsapp': 'var(--gradient-whatsapp)',
+				'gradient-premium': 'var(--gradient-premium)',
+				'gradient-instagram': 'var(--gradient-instagram)',
+				'gradient-youtube': 'var(--gradient-youtube)',
+				'gradient-siri': 'var(--gradient-siri)',
+				'gradient-ai': 'var(--gradient-ai)',
+				'gradient-watch': 'var(--gradient-watch)',
+			},
+			boxShadow: {
+				'card': 'var(--shadow-card)',
+				'card-hover': 'var(--shadow-card-hover)',
+				'premium': 'var(--shadow-premium)',
+			},
+			transitionProperty: {
+				'smooth': 'var(--transition-smooth)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
