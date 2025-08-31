@@ -6,9 +6,11 @@ interface ShortcutCardProps {
   isPremium?: boolean;
   isAI?: boolean;
   gradient: string;
+  href?: string;
 }
 
-const ShortcutCard = ({ title, icon, isPremium, isAI, gradient }: ShortcutCardProps) => {
+const ShortcutCard = ({ title, icon, isPremium, isAI, gradient, href }: ShortcutCardProps) => {
+  const Wrapper = href ? "a" : "div"
   return (
     <div className={`
       relative group rounded-xl p-4 cursor-pointer transition-all duration-300
