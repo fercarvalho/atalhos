@@ -7,11 +7,12 @@ import {
   Watch, 
   Download, 
   Mail,
-  Zap
+  Zap,
+  Pig,
 } from "lucide-react";
 
 const categories = [
-  { icon: Zap, label: "Poupa.ai", count: 5, active: true },
+  { icon: Pig, label: "Poupa.ai", count: 5, active: true },
 ];
 
 const Sidebar = () => {
