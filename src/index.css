@@ -8,37 +8,37 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 248 250 252;
-    --foreground: 15 23 42;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
 
-    --card: 255 255 255;
-    --card-foreground: 15 23 42;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 255 255 255;
-    --popover-foreground: 15 23 42;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
 
     --primary: 59 130 246;
-    --primary-foreground: 248 250 252;
+    --primary-foreground: 0 0% 95%;
 
-    --secondary: 241 245 249;
-    --secondary-foreground: 51 65 85;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 85%;
 
-    --muted: 248 250 252;
-    --muted-foreground: 100 116 139;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 241 245 249;
-    --accent-foreground: 15 23 42;
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 95%;
 
-    --destructive: 239 68 68;
-    --destructive-foreground: 248 250 252;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 226 232 240;
-    --input: 226 232 240;
+    --border: 0 0% 15%;
+    --input: 0 0% 12%;
     --ring: 59 130 246;
 
     --radius: 0.75rem;
 
-    /* iOS Galeria de Atalhos Design System */
+    /* iOS Galeria de Atalhos Design System - Dark Theme */
     --ios-blue: 59 130 246;
     --whatsapp-green: 37 211 102;
     --instagram-purple: 147 51 234;
@@ -46,7 +46,7 @@ All colors MUST be HSL.
     --premium-gold: 245 158 11;
     --ai-cyan: 6 182 212;
     
-    /* Gradients */
+    /* Gradients - Enhanced for dark theme */
     --gradient-whatsapp: linear-gradient(135deg, hsl(142 71% 45%), hsl(125 86% 45%));
     --gradient-premium: linear-gradient(135deg, hsl(var(--ios-blue)), hsl(147 51% 54%));
     --gradient-instagram: linear-gradient(135deg, hsl(316 93% 64%), hsl(262 91% 58%));
@@ -55,10 +55,10 @@ All colors MUST be HSL.
     --gradient-ai: linear-gradient(135deg, hsl(189 94% 43%), hsl(204 94% 58%));
     --gradient-watch: linear-gradient(135deg, hsl(220 14% 20%), hsl(215 25% 27%));
     
-    /* Shadows */
-    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow-card-hover: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
-    --shadow-premium: 0 10px 25px -5px hsl(var(--premium-gold) / 0.25);
+    /* Shadows - Enhanced for dark theme */
+    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.3), 0 1px 2px -1px hsl(0 0% 0% / 0.5);
+    --shadow-card-hover: 0 10px 15px -3px hsl(0 0% 0% / 0.4), 0 4px 6px -4px hsl(0 0% 0% / 0.3);
+    --shadow-premium: 0 10px 25px -5px hsl(var(--premium-gold) / 0.4);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
