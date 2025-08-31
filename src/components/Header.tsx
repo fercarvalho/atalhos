@@ -7,9 +7,12 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-premium rounded-lg flex items-center justify-center">
-              <div className="w-5 h-5 bg-white rounded opacity-90"></div>
-            </div>
+            {/* Troque a imagem desenhada por sua imagem */}
+            <img 
+              src="/logo.png" 
+              alt="Logo" 
+              className="w-8 h-8 rounded-lg"
+            />
             <h1 className="text-xl font-bold text-foreground">
               <span className="text-ios-blue">Galeria de</span>
               <br />
