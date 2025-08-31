@@ -8,11 +8,11 @@ import {
   Download, 
   Mail,
   Zap,
-  Pig,
+  Piggy-bank,
 } from "lucide-react";
 
 const categories = [
-  { icon: Pig, label: "Poupa.ai", count: 5, active: true },
+  { icon: Piggy-bank, label: "Poupa.ai", count: 5, active: true },
 ];
 
 const Sidebar = () => {
