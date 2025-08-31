@@ -24,7 +24,7 @@ const categories = [
 
 const Sidebar = () => {
   return (
-    <aside className="w-64 bg-white border-r border-border h-screen overflow-y-auto">
+    <aside className="w-64 bg-card border-r border-border h-screen overflow-y-auto">
       <div className="p-4">
         <nav className="space-y-1">
           {categories.map((category) => {
