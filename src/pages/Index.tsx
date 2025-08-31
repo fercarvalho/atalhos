@@ -11,83 +11,41 @@ const Index = () => {
       title: "Atalhos para WhatsApp",
       background: "bg-gradient-whatsapp",
       icon: <MessageCircle className="w-8 h-8 text-white" />
-    },
-    {
-      title: "Atalhos Premium", 
-      background: "bg-gradient-premium",
-      icon: <Layers className="w-8 h-8 text-white" />
-    },
-    {
-      title: "Comece com os Atalhos",
-      background: "bg-gradient-to-br from-orange-500 to-red-500",
-      icon: <Smartphone className="w-8 h-8 text-white" />
-    },
-    {
-      title: "Compatíveis com o Watch",
-      background: "bg-gradient-watch",
-      icon: <Watch className="w-8 h-8 text-white" />
-    },
-    {
-      title: "Perfeitos para Social Media",
-      background: "bg-gradient-instagram",
-      icon: <Instagram className="w-8 h-8 text-white" />
     }
   ];
 
   const popularShortcuts = [
     {
-      title: "Ejetar Água",
-      icon: "💧",
-      isPremium: true,
-      gradient: "bg-gradient-ai"
-    },
-    {
-      title: "Baixar do Instagram", 
-      icon: "📸",
-      isPremium: true,
-      gradient: "bg-gradient-instagram"
-    },
-    {
-      title: "Despertador da Siri",
-      icon: "⏰",
-      isPremium: true,
-      isAI: true,
-      gradient: "bg-gradient-siri"
-    },
-    {
-      title: "Tempo para Carregar",
-      icon: "🔋",
+      title: "Adicionar Banco",
+      icon: "🏦",
       gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
     },
     {
-      title: "Baixar do YouTube",
-      icon: "▶️",
-      isPremium: true,
-      gradient: "bg-gradient-youtube"
+      title: "Adicionar Cartão", 
+      icon: "💳",
+      gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
     },
     {
-      title: "Compartilhar WiFi",
-      icon: "📶",
-      gradient: "bg-gradient-to-br from-blue-500 to-cyan-500"
+      title: "Adicionar Categoria",
+      icon: "🏷️",
+      gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
+    },
+    {
+      title: "Adicionar Transação",
+      icon: "🧾",
+      gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
+    },
+    {
+      title: "Adicionar Transação do Cartão AUTOMÁTICO",
+      icon: "📩",
+      gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
     }
   ];
 
   const tutorials = [
     {
-      title: "Transforme Suas Manhãs com Automação no iPhone",
+      title: "Como automatizar suas transações do cartão",
       image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=240&fit=crop&crop=center"
-    },
-    {
-      title: "Como adicionar os Atalhos na tela do iPhone", 
-      image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=240&fit=crop&crop=center"
-    },
-    {
-      title: "Como colocar Atalhos no iPhone",
-      image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=240&fit=crop&crop=center"
-    },
-    {
-      title: "Como baixar vídeos e fotos do Instagram com a Siri",
-      image: "https://images.unsplash.com/photo-1611262588024-d12430b98920?w=400&h=240&fit=crop&crop=center"
     }
   ];
 
@@ -116,7 +74,7 @@ const Index = () => {
 
           {/* Mais populares Section */}
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Mais populares</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-6">ESPECIAL Poupa.ai</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {popularShortcuts.map((shortcut, index) => (
                 <ShortcutCard
@@ -133,7 +91,7 @@ const Index = () => {
 
           {/* Lançamentos Section */}
           <section>
-            <h2 className="text-2xl font-bold text-foreground mb-6">Lançamentos</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-6">Tutoriais</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {tutorials.map((tutorial, index) => (
                 <TutorialCard
