@@ -8,6 +8,11 @@ import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2 } from "lucid
 const Index = () => {
   const featuredShortcuts = [
     {
+      title: "Atalhos para IAs no WhatsApp",
+      background: "bg-gradient-whatsapp",
+      icon: <MessageCircle className="w-8 h-8 text-white" />
+    },
+    {
       title: "Atalhos para WhatsApp",
       background: "bg-gradient-whatsapp",
       icon: <MessageCircle className="w-8 h-8 text-white" />
