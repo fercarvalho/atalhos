@@ -22,7 +22,7 @@ const Header = () => {
           </div>
           
           {/* Barra de pesquisa fixa e alinhada */}
-          <div className="fixed left-1/2 transform -translate-x-1/2 w-[90vw] max-w-md z-50 top-[1.5rem] md:top-[2.5rem]">
+          <div className="fixed left-1/2 transform -translate-x-1/2 w-[36vw] max-w-md z-50 top-[1.5rem] md:top-[2.5rem]">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
