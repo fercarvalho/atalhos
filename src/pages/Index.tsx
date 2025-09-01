@@ -81,14 +81,30 @@ const Index = () => {
             </div>
             <h2 className="text-2xl font-bold text-foreground mb-6">Destaques</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-              {featuredShortcuts.map((shortcut, index) => (
+              {/* Atalhos para IAs no WhatsApp */}
+              <FeatureCard
+                title={featuredShortcuts[0].title}
+                background={featuredShortcuts[0].background}
+                icon={featuredShortcuts[0].icon}
+              />
+              {/* Atalhos para WhatsApp - com scroll suave */}
+              <a
+                href="#outros-atalhos-whatsapp"
+                onClick={e => {
+                  e.preventDefault();
+                  const el = document.querySelector("#outros-atalhos-whatsapp");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                style={{ textDecoration: "none" }}
+              >
                 <FeatureCard
-                  key={index}
-                  title={shortcut.title}
-                  background={shortcut.background}
-                  icon={shortcut.icon}
+                  title={featuredShortcuts[1].title}
+                  background={featuredShortcuts[1].background}
+                  icon={featuredShortcuts[1].icon}
                 />
-              ))}
+              </a>
             </div>
           </section>
 

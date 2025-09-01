@@ -60,7 +60,6 @@ const Sidebar = () => {
             <nav className="space-y-1">
               {categories.map((category) => {
                 const Icon = category.icon;
-                // Defina o href para cada item
                 let href = "#";
                 if (category.label === "Poupa.ai") href = "#especial-poupa-ai";
                 if (category.label === "Atalhos para WhatsApp") href = "#outros-atalhos-whatsapp";
@@ -68,7 +67,14 @@ const Sidebar = () => {
                   <a
                     key={category.label}
                     href={href}
-                    onClick={() => setOpen(false)}
+                    onClick={e => {
+                      e.preventDefault();
+                      setOpen(false);
+                      const el = document.querySelector(href);
+                      if (el) {
+                        el.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
                     className={`
                       flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors
                       ${category.active 
