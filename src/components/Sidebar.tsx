@@ -26,7 +26,7 @@ const Sidebar = () => {
       {/* Botão do menu para abrir */}
       {!open && (
         <button
-          className="fixed top-4 md:top-[2.2rem] left-4 z-50 bg-card p-2 rounded-lg shadow"
+          className="fixed top-4 md:top-[2.5rem] left-4 z-50 bg-card p-2 rounded-lg shadow"
           onClick={() => setOpen(true)}
           aria-label="Abrir menu"
         >
