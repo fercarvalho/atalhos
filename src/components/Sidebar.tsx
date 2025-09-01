@@ -33,6 +33,17 @@ const Sidebar = () => {
         </button>
       )}
 
+      {/* Botão para fechar no mobile */}
+      {open && (
+        <button
+          onClick={() => setOpen(false)}
+          className="md:hidden fixed top-4 left-4 z-50 bg-card p-2 rounded-lg shadow"
+          aria-label="Fechar menu"
+        >
+          <Menu className="w-6 h-6 text-foreground rotate-180" />
+        </button>
+      )}
+
       {/* Sidebar */}
       <aside
         className={`
@@ -46,16 +57,6 @@ const Sidebar = () => {
         style={{ maxWidth: "100vw" }}
       >
         <div className="p-4">
-          {/* Botão para fechar no mobile */}
-          <div className="md:hidden flex justify-end mb-4">
-            <button
-              onClick={() => setOpen(false)}
-              className="p-2 rounded-lg bg-muted"
-              aria-label="Fechar menu"
-            >
-              <Menu className="w-6 h-6 text-foreground rotate-180" />
-            </button>
-          </div>
           <nav className="space-y-1">
             {categories.map((category) => {
               const Icon = category.icon;
