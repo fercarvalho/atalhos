@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className="bg-card border-b border-border shadow-sm">
       <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="flex items-center space-x-3 ml-12">
             {/* Troque a imagem desenhada por sua imagem */}
             <img 
@@ -21,19 +21,19 @@ const Header = () => {
             </h1>
           </div>
           
-          <div className="flex-1 max-w-md mx-8">
+          <div className="w-full md:flex-1 md:max-w-md md:mx-8">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
                 type="search"
                 placeholder="Buscar"
-                className="pl-10 bg-muted border-0 focus:ring-2 focus:ring-ios-blue/20"
+                className="pl-10 bg-muted border-0 focus:ring-2 focus:ring-ios-blue/20 w-full"
               />
             </div>
           </div>
           
-          {/* Ícones sociais alinhados verticalmente */}
-          <div className="flex flex-col items-end space-y-2">
+          {/* Ícones sociais alinhados verticalmente e centralizados no mobile */}
+          <div className="flex flex-col items-center md:items-end space-y-2">
             <a
               href="https://www.tiktok.com/@ai.fercarvalho"
               target="_blank"
