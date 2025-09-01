@@ -69,7 +69,7 @@ const Index = () => {
               <img
                 src="/banner.png"
                 alt="Banner IA"
-                className="w-full max-h-80 object-cover rounded-xl transition-transform duration-200 hover:scale-105 shadow scale-90"
+                className="w-full max-h-80 object-cover rounded-xl transition-transform duration-200 hover:scale-100 shadow scale-90"
                 style={{ cursor: "pointer" }}
               />
             </div>
