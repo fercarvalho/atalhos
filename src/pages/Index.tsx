@@ -103,6 +103,19 @@ const Index = () => {
             </div>
           </section>
 
+          {/* Outros Atalhos para WhatsApp Section */}
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Outros Atalhos para WhatsApp</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              <ShortcutCard
+                title="Chama no Zap"
+                icon="💬"
+                gradient="bg-gradient-to-br from-green-500 to-emerald-600"
+                description="Fale com números no WhatsApp sem precisar salvar o contato"
+              />
+            </div>
+          </section>
+
           {/* Lançamentos Section */}
           <section>
             <h2 className="text-2xl font-bold text-foreground mb-6">Tutoriais</h2>
