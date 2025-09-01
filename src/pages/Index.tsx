@@ -86,42 +86,66 @@ const Index = () => {
             </div>
             <h2 className="text-2xl font-bold text-foreground mb-6">Destaques</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-              {/* Atalhos para IAs no WhatsApp - com scroll suave */}
-              <a
-                href="#especial-poupa-ai"
-                onClick={e => {
-                  e.preventDefault();
-                  const el = document.querySelector("#especial-poupa-ai");
-                  if (el) {
-                    el.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                style={{ textDecoration: "none" }}
-              >
-                <FeatureCard
-                  title={featuredShortcuts[0].title}
-                  background={featuredShortcuts[0].background}
-                  icon={featuredShortcuts[0].icon}
-                />
-              </a>
-              {/* Atalhos para WhatsApp - com scroll suave */}
-              <a
-                href="#outros-atalhos-whatsapp"
-                onClick={e => {
-                  e.preventDefault();
-                  const el = document.querySelector("#outros-atalhos-whatsapp");
-                  if (el) {
-                    el.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                style={{ textDecoration: "none" }}
-              >
-                <FeatureCard
-                  title={featuredShortcuts[1].title}
-                  background={featuredShortcuts[1].background}
-                  icon={featuredShortcuts[1].icon}
-                />
-              </a>
+              {featuredShortcuts.map((shortcut, index) => {
+                // Card 1: scroll para ESPECIAL Poupa.ai
+                if (index === 0) {
+                  return (
+                    <a
+                      key={index}
+                      href="#especial-poupa-ai"
+                      onClick={e => {
+                        e.preventDefault();
+                        const el = document.querySelector("#especial-poupa-ai");
+                        if (el) el.scrollIntoView({ behavior: "smooth" });
+                      }}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <FeatureCard
+                        title={shortcut.title}
+                        background={shortcut.background}
+                        icon={shortcut.icon}
+                      />
+                    </a>
+                  );
+                }
+                // Card 2: scroll para Outros Atalhos para WhatsApp
+                if (index === 1) {
+                  return (
+                    <a
+                      key={index}
+                      href="#outros-atalhos-whatsapp"
+                      onClick={e => {
+                        e.preventDefault();
+                        const el = document.querySelector("#outros-atalhos-whatsapp");
+                        if (el) el.scrollIntoView({ behavior: "smooth" });
+                      }}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <FeatureCard
+                        title={shortcut.title}
+                        background={shortcut.background}
+                        icon={shortcut.icon}
+                      />
+                    </a>
+                  );
+                }
+                // Card 3: botão Poupa.ai, link externo
+                return (
+                  <a
+                    key={index}
+                    href="https://poupa.ai/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <FeatureCard
+                      title={shortcut.title}
+                      background={shortcut.background}
+                      icon={shortcut.icon}
+                    />
+                  </a>
+                );
+              })}
             </div>
           </section>
 
