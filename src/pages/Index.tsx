@@ -3,7 +3,7 @@ import Sidebar from "@/components/Sidebar";
 import FeatureCard from "@/components/FeatureCard";
 import ShortcutCard from "@/components/ShortcutCard";
 import TutorialCard from "@/components/TutorialCard";
-import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank } from "lucide-react";
+import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank, Youtube } from "lucide-react";
 
 const Index = () => {
   const featuredShortcuts = [
@@ -30,18 +30,18 @@ const Index = () => {
     },
     {
       title: "YouTube",
-      background: "bg-red",
-      icon: <MessageCircle className="w-8 h-8 text-white" />
+      background: "bg-gradient-to-br from-red-500 to-red-700",
+      icon: <Youtube className="w-8 h-8 text-white" />
     },
     {
       title: "TikTok",
-      background: "bg-black",
+      background: "bg-gradient-to-br from-black via-gray-900 to-gray-800",
       icon: <MessageCircle className="w-8 h-8 text-white" />
     },
     {
       title: "Instagram",
-      background: "bg-pink",
-      icon: <MessageCircle className="w-8 h-8 text-white" />
+      background: "bg-gradient-to-br from-pink-500 to-pink-700",
+      icon: <Instagram className="w-8 h-8 text-white" />
     },
   ];
 
