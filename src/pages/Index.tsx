@@ -78,6 +78,18 @@ const Index = () => {
                   style={{ cursor: "pointer" }}
                 />
               </a>
+              {/* Botão Poupa.ai */}
+              <div className="flex justify-center mt-6">
+                <a
+                  href="https://poupa.ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 text-white font-bold text-lg shadow hover:scale-105 transition-transform duration-200"
+                  style={{ textDecoration: "none" }}
+                >
+                  Automatize suas finanças com o Poupa.ai
+                </a>
+              </div>
             </div>
             <h2 className="text-2xl font-bold text-foreground mb-6">Destaques</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
