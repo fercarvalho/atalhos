@@ -4,9 +4,9 @@ import { SiTiktok, SiInstagram, SiYoutube } from "react-icons/si";
 
 const Header = () => {
   return (
-    <header className="bg-card border-b border-border shadow-sm h-[20rem] md:h-auto flex items-start">
+    <header className="bg-card border-b border-border shadow-sm h-[20rem] md:h-auto flex items-center">
       <div className="container mx-auto px-4 py-4">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 justify-start">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="flex items-center space-x-3 ml-12">
             {/* Troque a imagem desenhada por sua imagem */}
             <img 
@@ -34,7 +34,7 @@ const Header = () => {
           </div>
           
           {/* Ícones sociais alinhados verticalmente e centralizados no mobile */}
-          <div className="flex flex-col items-center md:items-end space-y-2 mt-4">
+          <div className="flex flex-col items-center md:items-end space-y-2">
             <a
               href="https://www.youtube.com/@ai.fercarvalho"
               target="_blank"
