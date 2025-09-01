@@ -60,11 +60,10 @@ const Sidebar = () => {
             <nav className="space-y-1">
               {categories.map((category) => {
                 const Icon = category.icon;
-                // Defina o href para "Poupa.ai"
-                const href =
-                  category.label === "Poupa.ai"
-                    ? "#especial-poupa-ai"
-                    : "#";
+                // Defina o href para cada item
+                let href = "#";
+                if (category.label === "Poupa.ai") href = "#especial-poupa-ai";
+                if (category.label === "Atalhos para WhatsApp") href = "#outros-atalhos-whatsapp";
                 return (
                   <a
                     key={category.label}
