@@ -19,7 +19,7 @@ const Index = () => {
     },
     {
       title: "Automatize suas finanças com o Poupa.ai",
-      background: "bg-white",
+      background: "bg-gradientwhite",
       icon: <PiggyBank className="w-8 h-8 text-blue" />
     }
   ];
