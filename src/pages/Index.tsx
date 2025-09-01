@@ -251,7 +251,7 @@ function Index() {
             <h2 className="text-2xl font-bold text-foreground mb-6">Outros Atalhos para WhatsApp</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               <a
-                href="https://www.icloud.com/shortcuts/5e68f4bfb05948018fee311b89ae7b3c"
+                href="https://www.icloud.com/shortcuts/efcf18326dc84e33829b2c0cd6702831"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ textDecoration: "none" }}
