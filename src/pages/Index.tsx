@@ -62,17 +62,17 @@ const Index = () => {
         <Sidebar />
         
         <main className="flex-1 p-6">
-          {/* Banner Section */}
-          <div className="mb-8">
-            <img
-              src="/banner.png"
-              alt="Banner IA"
-              className="w-full max-h-80 object-cover rounded-xl transition-transform duration-200 hover:scale-105 shadow"
-              style={{ cursor: "pointer" }}
-            />
-          </div>
           {/* Destaques Section */}
           <section className="mb-8">
+            {/* Banner Section */}
+            <div className="mb-8">
+              <img
+                src="/banner.png"
+                alt="Banner IA"
+                className="w-full max-h-80 object-cover rounded-xl transition-transform duration-200 hover:scale-105 shadow"
+                style={{ cursor: "pointer" }}
+              />
+            </div>
             <h2 className="text-2xl font-bold text-foreground mb-6">Destaques</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {featuredShortcuts.map((shortcut, index) => (
