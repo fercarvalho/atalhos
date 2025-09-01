@@ -129,8 +129,8 @@ const Index = () => {
                     </a>
                   );
                 }
-                // Card 1: scroll para ESPECIAL Poupa.ai
-                if (index === 0) {
+                // Card "Atalhos para IAs no WhatsApp" - scroll para ESPECIAL Poupa.ai
+                if (shortcut.title === "Atalhos para IAs no WhatsApp") {
                   return (
                     <a
                       key={index}
@@ -150,8 +150,8 @@ const Index = () => {
                     </a>
                   );
                 }
-                // Card 2: scroll para Outros Atalhos para WhatsApp
-                if (index === 1) {
+                // Card "Atalhos para WhatsApp" - scroll para Outros Atalhos para WhatsApp
+                if (shortcut.title === "Atalhos para WhatsApp") {
                   return (
                     <a
                       key={index}
