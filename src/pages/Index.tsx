@@ -4,7 +4,7 @@ import FeatureCard from "@/components/FeatureCard";
 import ShortcutCard from "@/components/ShortcutCard";
 import TutorialCard from "@/components/TutorialCard";
 import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank, Youtube, Bot } from "lucide-react";
-import { LiaTiktok } from '@lineicons/react';
+import { SiTiktok } from "react-icons/si";
 
 
 function Index() {
@@ -17,7 +17,7 @@ function Index() {
     {
       title: "Obtenha dicas rápidas e poderosas sobre IA no TikTok",
       background: "bg-gradient-to-br from-black via-gray-900 to-gray-800",
-      icon: <LiaTiktok className="w-8 h-8 text-white" />
+      icon: <SiTiktok className="w-8 h-8 text-white" />
     },
     {
       title: "Acesse o Instagram para dicas diárias de IA",
