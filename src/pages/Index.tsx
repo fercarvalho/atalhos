@@ -16,6 +16,11 @@ const Index = () => {
       title: "Atalhos para WhatsApp",
       background: "bg-gradient-whatsapp",
       icon: <MessageCircle className="w-8 h-8 text-white" />
+    },
+    {
+      title: "Automatize suas finanças com o Poupa.ai",
+      background: "bg-white",
+      icon: <PiggyBank className="w-8 h-8 text-blue" />
     }
   ];
 
@@ -77,21 +82,6 @@ const Index = () => {
                   className="w-full max-h-80 object-cover rounded-xl transition-transform duration-200 hover:scale-100 shadow scale-95"
                   style={{ cursor: "pointer" }}
                 />
-              </a>
-            </div>
-            {/* Botão Poupa.ai seguindo design do site poupa.ai */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
-              <a
-                href="https://poupa.ai/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: "none" }}
-                className="flex items-center justify-center px-4 py-6 rounded-xl bg-white shadow hover:scale-105 transition-transform duration-200"
-              >
-                <PiggyBank className="w-8 h-8 mr-4" style={{ color: "#3662e3" }} />
-                <span className="text-lg font-bold" style={{ color: "#3662e3" }}>
-                  Automatize suas finanças com o Poupa.ai
-                </span>
               </a>
             </div>
             <h2 className="text-2xl font-bold text-foreground mb-6">Destaques</h2>
