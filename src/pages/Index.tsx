@@ -7,7 +7,7 @@ import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank, Y
 import { LiaTiktok } from '@lineicons/react';
 
 
-const Index = () => {
+function Index() {
   const featuredShortcuts = [
     {
       title: "Assista as aulas mais completas sobre IA no Youtube",
@@ -54,7 +54,7 @@ const Index = () => {
       gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
     },
     {
-      title: "Adicionar Cartão", 
+      title: "Adicionar Cartão",
       icon: "💳",
       gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
     },
@@ -85,10 +85,10 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <div className="flex">
         <Sidebar />
-        
+
         <main className="flex-1 p-6">
           {/* Destaques Section */}
           <section className="mb-8">
@@ -103,18 +103,15 @@ const Index = () => {
                   src="/banner.png"
                   alt="Banner IA"
                   className="w-full max-h-80 object-cover rounded-xl transition-transform duration-200 hover:scale-100 shadow scale-95"
-                  style={{ cursor: "pointer" }}
-                />
+                  style={{ cursor: "pointer" }} />
               </a>
             </div>
             <h2 className="text-2xl font-bold text-foreground mb-6">Destaques</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {featuredShortcuts.map((shortcut, index) => {
                 // Card do Poupa.ai (com texto promocional) aponta para link externo
-                if (
-                  typeof shortcut.title === "object" &&
-                  shortcut.title?.props?.children?.[0] === "Automatize suas finanças com o Poupa.ai"
-                ) {
+                if (typeof shortcut.title === "object" &&
+                  shortcut.title?.props?.children?.[0] === "Automatize suas finanças com o Poupa.ai") {
                   return (
                     <a
                       key={index}
@@ -126,8 +123,7 @@ const Index = () => {
                       <FeatureCard
                         title={shortcut.title}
                         background={shortcut.background}
-                        icon={shortcut.icon}
-                      />
+                        icon={shortcut.icon} />
                     </a>
                   );
                 }
@@ -141,14 +137,13 @@ const Index = () => {
                         e.preventDefault();
                         const el = document.querySelector("#especial-poupa-ai");
                         if (el) el.scrollIntoView({ behavior: "smooth" });
-                      }}
+                      } }
                       style={{ textDecoration: "none" }}
                     >
                       <FeatureCard
                         title={shortcut.title}
                         background={shortcut.background}
-                        icon={shortcut.icon}
-                      />
+                        icon={shortcut.icon} />
                     </a>
                   );
                 }
@@ -162,14 +157,13 @@ const Index = () => {
                         e.preventDefault();
                         const el = document.querySelector("#outros-atalhos-whatsapp");
                         if (el) el.scrollIntoView({ behavior: "smooth" });
-                      }}
+                      } }
                       style={{ textDecoration: "none" }}
                     >
                       <FeatureCard
                         title={shortcut.title}
                         background={shortcut.background}
-                        icon={shortcut.icon}
-                      />
+                        icon={shortcut.icon} />
                     </a>
                   );
                 }
@@ -179,8 +173,7 @@ const Index = () => {
                     key={index}
                     title={shortcut.title}
                     background={shortcut.background}
-                    icon={shortcut.icon}
-                  />
+                    icon={shortcut.icon} />
                 );
               })}
             </div>
@@ -197,8 +190,7 @@ const Index = () => {
                   icon={shortcut.icon}
                   isPremium={shortcut.isPremium}
                   isAI={shortcut.isAI}
-                  gradient={shortcut.gradient}
-                />
+                  gradient={shortcut.gradient} />
               ))}
             </div>
           </section>
@@ -211,8 +203,7 @@ const Index = () => {
                 title="Chama no Zap"
                 icon="💬"
                 gradient="bg-gradient-to-br from-green-500 to-emerald-600"
-                description="Fale com números no WhatsApp sem precisar salvar o contato"
-              />
+                description="Fale com números no WhatsApp sem precisar salvar o contato" />
             </div>
           </section>
 
@@ -228,8 +219,7 @@ const Index = () => {
               >
                 <TutorialCard
                   title={tutorials[0].title}
-                  image={tutorials[0].image}
-                />
+                  image={tutorials[0].image} />
               </a>
             </div>
           </section>
@@ -237,6 +227,6 @@ const Index = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Index;
