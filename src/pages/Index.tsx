@@ -8,27 +8,6 @@ import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank, Y
 const Index = () => {
   const featuredShortcuts = [
     {
-      title: "Atalhos para IAs no WhatsApp",
-      background: "bg-gradient-whatsapp",
-      icon: <MessageCircle className="w-8 h-8 text-white" />
-    },
-    {
-      title: "Atalhos para WhatsApp",
-      background: "bg-gradient-whatsapp",
-      icon: <MessageCircle className="w-8 h-8 text-white" />
-    },
-    {
-      title: (
-        <>
-          Automatize suas finanças com o Poupa.ai
-          <br />
-          10% OFF: FERCARVALHO
-        </>
-      ),
-      background: "bg-[#3662e3]",
-      icon: <PiggyBank className="w-8 h-8 text-white" />
-    },
-    {
       title: "YouTube",
       background: "bg-gradient-to-br from-red-500 to-red-700",
       icon: <Youtube className="w-8 h-8 text-white" />
@@ -43,6 +22,27 @@ const Index = () => {
       background: "bg-gradient-to-br from-pink-500 to-pink-700",
       icon: <Instagram className="w-8 h-8 text-white" />
     },
+    {
+      title: (
+        <>
+          Automatize suas finanças com o Poupa.ai
+          <br />
+          10% OFF: FERCARVALHO
+        </>
+      ),
+      background: "bg-[#3662e3]",
+      icon: <PiggyBank className="w-8 h-8 text-white" />
+    },
+    {
+      title: "Atalhos para IAs no WhatsApp",
+      background: "bg-gradient-whatsapp",
+      icon: <MessageCircle className="w-8 h-8 text-white" />
+    },
+    {
+      title: "Atalhos para WhatsApp",
+      background: "bg-gradient-whatsapp",
+      icon: <MessageCircle className="w-8 h-8 text-white" />
+    }
   ];
 
   const popularShortcuts = [
