@@ -27,7 +27,22 @@ const Index = () => {
       ),
       background: "bg-[#3662e3]",
       icon: <PiggyBank className="w-8 h-8 text-white" />
-    }
+    },
+    {
+      title: "YouTube",
+      background: "bg-red",
+      icon: <MessageCircle className="w-8 h-8 text-white" />
+    },
+    {
+      title: "TikTok",
+      background: "bg-black",
+      icon: <MessageCircle className="w-8 h-8 text-white" />
+    },
+    {
+      title: "Instagram",
+      background: "bg-pink",
+      icon: <MessageCircle className="w-8 h-8 text-white" />
+    },
   ];
 
   const popularShortcuts = [
