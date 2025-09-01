@@ -6,7 +6,7 @@ const Header = () => {
     <header className="bg-card border-b border-border shadow-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 ml-12">
             {/* Troque a imagem desenhada por sua imagem */}
             <img 
               src="/logo.png" 
