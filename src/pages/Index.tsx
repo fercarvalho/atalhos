@@ -250,11 +250,19 @@ function Index() {
           <section id="outros-atalhos-whatsapp" className="mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Outros Atalhos para WhatsApp</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              <ShortcutCard
-                title="Chama no Zap"
-                icon="💬"
-                gradient="bg-gradient-to-br from-green-500 to-emerald-600"
-                description="Fale com números no WhatsApp sem precisar salvar o contato" />
+              <a
+                href="https://www.icloud.com/shortcuts/5e68f4bfb05948018fee311b89ae7b3c"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none" }}
+              >
+                <ShortcutCard
+                  title="Chama no Zap"
+                  icon="💬"
+                  gradient="bg-gradient-to-br from-green-500 to-emerald-600"
+                  description="Fale com números no WhatsApp sem precisar salvar o contato"
+                />
+              </a>
             </div>
           </section>
 
