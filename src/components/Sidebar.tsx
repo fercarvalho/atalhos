@@ -26,7 +26,7 @@ const Sidebar = () => {
       {/* Botão do menu para abrir */}
       {!open && (
         <button
-          className="fixed top-[1.30rem] left-4 z-50 bg-card p-2 rounded-lg shadow"
+          className="fixed top-[1.40rem] left-4 z-50 bg-card p-2 rounded-lg shadow"
           onClick={() => setOpen(true)}
           aria-label="Abrir menu"
         >
@@ -38,7 +38,7 @@ const Sidebar = () => {
       {open && (
         <button
           onClick={() => setOpen(false)}
-          className="fixed top-[1.30rem] left-4 z-50 bg-card p-2 rounded-lg shadow"
+          className="fixed top-[1.40rem] left-4 z-50 bg-card p-2 rounded-lg shadow"
           aria-label="Fechar menu"
         >
           <Menu className="w-6 h-6 text-foreground rotate-180" />
