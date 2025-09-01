@@ -3,7 +3,7 @@ import Sidebar from "@/components/Sidebar";
 import FeatureCard from "@/components/FeatureCard";
 import ShortcutCard from "@/components/ShortcutCard";
 import TutorialCard from "@/components/TutorialCard";
-import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2 } from "lucide-react";
+import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank } from "lucide-react";
 
 const Index = () => {
   const featuredShortcuts = [
@@ -78,18 +78,21 @@ const Index = () => {
                   style={{ cursor: "pointer" }}
                 />
               </a>
-              {/* Botão Poupa.ai */}
-              <div className="flex justify-center mt-6">
-                <a
-                  href="https://poupa.ai/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 text-white font-bold text-lg shadow hover:scale-105 transition-transform duration-200"
-                  style={{ textDecoration: "none" }}
-                >
+            </div>
+            {/* Botão Poupa.ai seguindo design do site poupa.ai */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+              <a
+                href="https://poupa.ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none" }}
+                className="flex items-center justify-center px-4 py-6 rounded-xl bg-white shadow hover:scale-105 transition-transform duration-200"
+              >
+                <PiggyBank className="w-8 h-8 mr-4" style={{ color: "#3662e3" }} />
+                <span className="text-lg font-bold" style={{ color: "#3662e3" }}>
                   Automatize suas finanças com o Poupa.ai
-                </a>
-              </div>
+                </span>
+              </a>
             </div>
             <h2 className="text-2xl font-bold text-foreground mb-6">Destaques</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
