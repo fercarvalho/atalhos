@@ -5,10 +5,10 @@ import { SiTiktok, SiInstagram, SiYoutube } from "react-icons/si";
 const Header = () => {
   return (
     <header className="bg-card border-b border-border shadow-sm">
-      <div className="container mx-auto px-4 py-6 md:py-4">
+      <div className="container mx-auto px-4 py-4">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          {/* Logo e frases no topo no mobile */}
-          <div className="flex items-center space-x-3 mb-4 md:mb-0 ml-12">
+          <div className="flex items-center space-x-3 ml-12">
+            {/* Troque a imagem desenhada por sua imagem */}
             <img 
               src="/logo.png" 
               alt="Logo" 
@@ -21,9 +21,9 @@ const Header = () => {
             </h1>
           </div>
           
-          {/* Barra de pesquisa centralizada no mobile */}
-          <div className="flex flex-col items-center w-full md:flex-1 md:max-w-md md:mx-8">
-            <div className="relative w-full flex justify-center">
+          {/* Barra de pesquisa fixa e alinhada */}
+          <div className="fixed left-1/2 transform -translate-x-1/2 w-[60vw] max-w-md z-50 top-[1.5rem] md:top-[2.5rem]">
+            <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
                 type="search"
@@ -34,7 +34,16 @@ const Header = () => {
           </div>
           
           {/* Ícones sociais alinhados verticalmente e centralizados no mobile */}
-          <div className="flex flex-col items-center md:items-end space-y-2 mt-4 md:mt-0">
+          <div className="flex flex-col items-center md:items-end space-y-2">
+            <a
+              href="https://www.youtube.com/@ai.fercarvalho"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 text-ios-blue font-bold"
+            >
+              <SiYoutube className="w-5 h-5 text-ios-blue" />
+              <span>/@ai.fercarvalho</span>
+            </a>
             <a
               href="https://www.tiktok.com/@ai.fercarvalho"
               target="_blank"
@@ -51,15 +60,6 @@ const Header = () => {
               className="flex items-center space-x-2 text-ios-blue font-bold"
             >
               <SiInstagram className="w-5 h-5 text-ios-blue" />
-              <span>/@ai.fercarvalho</span>
-            </a>
-            <a
-              href="https://www.youtube.com/@ai.fercarvalho"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 text-ios-blue font-bold"
-            >
-              <SiYoutube className="w-5 h-5 text-ios-blue" />
               <span>/@ai.fercarvalho</span>
             </a>
           </div>
