@@ -14,7 +14,7 @@ import {
 import { useState } from "react";
 
 const categories = [
-  { icon: PiggyBank, label: "Poupa.ai", count: 5, active: true },
+  { icon: PiggyBank, label: "Poupa.ai", count: 5, active: false },
   { icon: MessageCircle, label: "Atalhos para WhatsApp", count: 1, active: false },
 ];
 
