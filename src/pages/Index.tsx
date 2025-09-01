@@ -18,13 +18,9 @@ const Index = () => {
       icon: <MessageCircle className="w-8 h-8 text-white" />
     },
     {
-      title: (
-        <span style={{ color: "#3662e3" }}>
-          Automatize suas finanças com o Poupa.ai
-        </span>
-      ),
-      background: "bg-white",
-      icon: <PiggyBank className="w-8 h-8" style={{ color: "#3662e3" }} />
+      title: "Automatize suas finanças com o Poupa.ai",
+      background: "bg-[#3662e3]",
+      icon: <PiggyBank className="w-8 h-8 text-white" />
     }
   ];
 
@@ -90,69 +86,42 @@ const Index = () => {
             </div>
             <h2 className="text-2xl font-bold text-foreground mb-6">Destaques</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-              {featuredShortcuts.map((shortcut, index) => {
-                // Adicione o link apenas para os dois primeiros cards
-                if (index === 0) {
-                  return (
-                    <a
-                      key={index}
-                      href="#especial-poupa-ai"
-                      onClick={e => {
-                        e.preventDefault();
-                        const el = document.querySelector("#especial-poupa-ai");
-                        if (el) {
-                          el.scrollIntoView({ behavior: "smooth" });
-                        }
-                      }}
-                      style={{ textDecoration: "none" }}
-                    >
-                      <FeatureCard
-                        title={shortcut.title}
-                        background={shortcut.background}
-                        icon={shortcut.icon}
-                      />
-                    </a>
-                  );
-                }
-                if (index === 1) {
-                  return (
-                    <a
-                      key={index}
-                      href="#outros-atalhos-whatsapp"
-                      onClick={e => {
-                        e.preventDefault();
-                        const el = document.querySelector("#outros-atalhos-whatsapp");
-                        if (el) {
-                          el.scrollIntoView({ behavior: "smooth" });
-                        }
-                      }}
-                      style={{ textDecoration: "none" }}
-                    >
-                      <FeatureCard
-                        title={shortcut.title}
-                        background={shortcut.background}
-                        icon={shortcut.icon}
-                      />
-                    </a>
-                  );
-                }
-                // Para o botão Poupa.ai, coloque o link externo
-                return (
-                  <a
-                    key={index}
-                    href="https://poupa.ai/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <FeatureCard
-                      title={shortcut.title}
-                      background={shortcut.background}
-                      icon={shortcut.icon}
-                    />
-                  </a>
-                );
-              })}
+              {/* Atalhos para IAs no WhatsApp - com scroll suave */}
+              <a
+                href="#especial-poupa-ai"
+                onClick={e => {
+                  e.preventDefault();
+                  const el = document.querySelector("#especial-poupa-ai");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                style={{ textDecoration: "none" }}
+              >
+                <FeatureCard
+                  title={featuredShortcuts[0].title}
+                  background={featuredShortcuts[0].background}
+                  icon={featuredShortcuts[0].icon}
+                />
+              </a>
+              {/* Atalhos para WhatsApp - com scroll suave */}
+              <a
+                href="#outros-atalhos-whatsapp"
+                onClick={e => {
+                  e.preventDefault();
+                  const el = document.querySelector("#outros-atalhos-whatsapp");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                style={{ textDecoration: "none" }}
+              >
+                <FeatureCard
+                  title={featuredShortcuts[1].title}
+                  background={featuredShortcuts[1].background}
+                  icon={featuredShortcuts[1].icon}
+                />
+              </a>
             </div>
           </section>
 
