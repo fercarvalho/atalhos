@@ -4,7 +4,7 @@ import { SiTiktok, SiInstagram, SiYoutube } from "react-icons/si";
 
 const Header = () => {
   return (
-    <header className="bg-card border-b border-border shadow-sm h-[20rem] md:h-auto flex items-center">
+    <header className="bg-card border-b border-border shadow-sm h-[18rem] md:h-auto flex items-center">
       <div className="container mx-auto px-4 py-4">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="flex items-center space-x-3 ml-12">
