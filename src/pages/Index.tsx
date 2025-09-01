@@ -8,17 +8,17 @@ import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank, Y
 const Index = () => {
   const featuredShortcuts = [
     {
-      title: "YouTube",
+      title: "Assista as aulas mais completas sobre IA no Youtube",
       background: "bg-gradient-to-br from-red-500 to-red-700",
       icon: <Youtube className="w-8 h-8 text-white" />
     },
     {
-      title: "TikTok",
+      title: "Obtenha dicas rápidas e poderosas sobre IA no TikTok",
       background: "bg-gradient-to-br from-black via-gray-900 to-gray-800",
       icon: <MessageCircle className="w-8 h-8 text-white" />
     },
     {
-      title: "Instagram",
+      title: "Acesse o Instagram para dicas diárias de IA",
       background: "bg-gradient-to-br from-pink-500 to-pink-700",
       icon: <Instagram className="w-8 h-8 text-white" />
     },
