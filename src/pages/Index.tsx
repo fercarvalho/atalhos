@@ -49,7 +49,7 @@ const Index = () => {
 
   const tutorials = [
     {
-      title: "Como automatizar suas transações do cartão",
+      title: "Registrando Despesas Recorrentes no Poupa.ai",
       image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=240&fit=crop&crop=center"
     }
   ];
@@ -154,13 +154,17 @@ const Index = () => {
           <section>
             <h2 className="text-2xl font-bold text-foreground mb-6">Tutoriais</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {tutorials.map((tutorial, index) => (
+              <a
+                href="https://www.youtube.com/watch?v=qmq_ICYZt20"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none" }}
+              >
                 <TutorialCard
-                  key={index}
-                  title={tutorial.title}
-                  image={tutorial.image}
+                  title={tutorials[0].title}
+                  image={tutorials[0].image}
                 />
-              ))}
+              </a>
             </div>
           </section>
         </main>
