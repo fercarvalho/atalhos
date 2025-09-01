@@ -61,7 +61,7 @@ const Index = () => {
       <div className="flex">
         <Sidebar />
         
-        <main className="flex-1 p-6 md:ml-64">
+        <main className="flex-1 p-6">
           {/* Destaques Section */}
           <section className="mb-8">
             {/* Banner Section */}
