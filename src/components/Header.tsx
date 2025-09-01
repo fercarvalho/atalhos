@@ -35,6 +35,15 @@ const Header = () => {
           {/* Ícones sociais alinhados verticalmente e centralizados no mobile */}
           <div className="flex flex-col items-center md:items-end space-y-2">
             <a
+              href="https://www.youtube.com/@ai.fercarvalho"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 text-ios-blue font-bold"
+            >
+              <SiYoutube className="w-5 h-5 text-ios-blue" />
+              <span>/@ai.fercarvalho</span>
+            </a>
+            <a
               href="https://www.tiktok.com/@ai.fercarvalho"
               target="_blank"
               rel="noopener noreferrer"
@@ -50,15 +59,6 @@ const Header = () => {
               className="flex items-center space-x-2 text-ios-blue font-bold"
             >
               <SiInstagram className="w-5 h-5 text-ios-blue" />
-              <span>/@ai.fercarvalho</span>
-            </a>
-            <a
-              href="https://www.youtube.com/@ai.fercarvalho"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 text-ios-blue font-bold"
-            >
-              <SiYoutube className="w-5 h-5 text-ios-blue" />
               <span>/@ai.fercarvalho</span>
             </a>
           </div>
