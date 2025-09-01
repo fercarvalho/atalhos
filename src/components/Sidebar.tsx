@@ -49,10 +49,9 @@ const Sidebar = () => {
         className={`
           h-screen overflow-y-auto bg-card border-r border-border
           transition-transform duration-300
+          fixed top-0 left-0 z-40
           w-64
           ${open ? "translate-x-0" : "-translate-x-full"}
-          fixed top-0 left-0 z-40
-          md:static md:translate-x-0 md:z-0
         `}
         style={{ maxWidth: "100vw" }}
       >
