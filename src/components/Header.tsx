@@ -1,8 +1,27 @@
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { SiTiktok, SiInstagram, SiYoutube } from "react-icons/si";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const [showFloatingSearch, setShowFloatingSearch] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth < 768) {
+        setShowFloatingSearch(window.scrollY > 60);
+      } else {
+        setShowFloatingSearch(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
   return (
     <header className="bg-card border-b border-border shadow-sm">
       <div className="container mx-auto px-4 py-4">
@@ -64,6 +83,18 @@ const Header = () => {
           </div>
         </div>
       </div>
+      {/* Barra de pesquisa flutuante para mobile */}
+      {showFloatingSearch && (
+        <div className="fixed top-[1.5rem] left-1/2 z-50 w-11/12 max-w-sm -translate-x-1/2 scale-90 bg-card rounded-xl shadow-lg px-2 py-2 flex items-center">
+          <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+          <Input
+            type="search"
+            placeholder="Buscar"
+            className="pl-10 bg-muted border-0 focus:ring-2 focus:ring-ios-blue/20 w-full"
+            style={{ minWidth: 0 }}
+          />
+        </div>
+      )}
     </header>
   );
 };
