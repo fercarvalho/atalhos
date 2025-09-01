@@ -60,10 +60,15 @@ const Sidebar = () => {
             <nav className="space-y-1">
               {categories.map((category) => {
                 const Icon = category.icon;
+                // Defina o href para "Poupa.ai"
+                const href =
+                  category.label === "Poupa.ai"
+                    ? "#especial-poupa-ai"
+                    : "#";
                 return (
                   <a
                     key={category.label}
-                    href="#"
+                    href={href}
                     className={`
                       flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors
                       ${category.active 

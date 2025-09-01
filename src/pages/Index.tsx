@@ -87,7 +87,7 @@ const Index = () => {
           </section>
 
           {/* Mais populares Section */}
-          <section className="mb-8">
+          <section id="especial-poupa-ai" className="mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">ESPECIAL Poupa.ai</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {popularShortcuts.map((shortcut, index) => (
