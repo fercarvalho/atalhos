@@ -3,7 +3,7 @@ import Sidebar from "@/components/Sidebar";
 import FeatureCard from "@/components/FeatureCard";
 import ShortcutCard from "@/components/ShortcutCard";
 import TutorialCard from "@/components/TutorialCard";
-import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank, Youtube } from "lucide-react";
+import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank, Youtube, Bot } from "lucide-react";
 
 const Index = () => {
   const featuredShortcuts = [
@@ -36,7 +36,7 @@ const Index = () => {
     {
       title: "Atalhos para IAs no WhatsApp",
       background: "bg-gradient-whatsapp",
-      icon: <MessageCircle className="w-8 h-8 text-white" />
+      icon: <Bot className="w-8 h-8 text-white" />
     },
     {
       title: "Atalhos para WhatsApp",
