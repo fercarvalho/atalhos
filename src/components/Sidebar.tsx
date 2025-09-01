@@ -51,11 +51,7 @@ const Sidebar = () => {
             h-screen overflow-y-auto bg-card border-r border-border
             transition-all duration-300
             w-64
-            z-40
-            ${typeof window !== "undefined" && window.innerWidth < 768
-              ? "fixed top-0 left-0"
-              : "relative"
-            }
+            fixed top-0 left-0 z-40
           `}
           style={{ maxWidth: "100vw" }}
         >
@@ -96,8 +92,8 @@ const Sidebar = () => {
         </aside>
       )}
 
-      {/* Overlay para fechar o menu ao clicar fora (apenas mobile) */}
-      {open && typeof window !== "undefined" && window.innerWidth < 768 && (
+      {/* Overlay para fechar o menu ao clicar fora */}
+      {open && (
         <div
           className="fixed inset-0 bg-black/40 z-30"
           onClick={() => setOpen(false)}
