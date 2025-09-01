@@ -15,6 +15,7 @@ import { useState } from "react";
 
 const categories = [
   { icon: PiggyBank, label: "Poupa.ai", count: 5, active: true },
+  { icon: MessageCircle, label: "Atalhos para WhatsApp", count: 1, active: false },
 ];
 
 const Sidebar = () => {
