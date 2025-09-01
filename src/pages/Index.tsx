@@ -66,12 +66,18 @@ const Index = () => {
           <section className="mb-8">
             {/* Banner Section */}
             <div className="mb-8">
-              <img
-                src="/banner.png"
-                alt="Banner IA"
-                className="w-full max-h-80 object-cover rounded-xl transition-transform duration-200 hover:scale-100 shadow scale-95"
-                style={{ cursor: "pointer" }}
-              />
+              <a
+                href="https://www.youtube.com/@ai.fercarvalho"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/banner.png"
+                  alt="Banner IA"
+                  className="w-full max-h-80 object-cover rounded-xl transition-transform duration-200 hover:scale-100 shadow scale-95"
+                  style={{ cursor: "pointer" }}
+                />
+              </a>
             </div>
             <h2 className="text-2xl font-bold text-foreground mb-6">Destaques</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
