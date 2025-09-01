@@ -127,6 +127,57 @@ function Index() {
                     </a>
                   );
                 }
+                // Card TikTok
+                if (shortcut.title === "Obtenha dicas rápidas e poderosas sobre IA no TikTok") {
+                  return (
+                    <a
+                      key={index}
+                      href="https://www.tiktok.com/@ai.fercarvalho"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ textDecoration: "none" }}
+                    >
+                      <FeatureCard
+                        title={shortcut.title}
+                        background={shortcut.background}
+                        icon={shortcut.icon} />
+                    </a>
+                  );
+                }
+                // Card Instagram
+                if (shortcut.title === "Acesse o Instagram para dicas diárias de IA") {
+                  return (
+                    <a
+                      key={index}
+                      href="https://www.instagram.com/ai.fercarvalho/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ textDecoration: "none" }}
+                    >
+                      <FeatureCard
+                        title={shortcut.title}
+                        background={shortcut.background}
+                        icon={shortcut.icon} />
+                    </a>
+                  );
+                }
+                // Card YouTube
+                if (shortcut.title === "Assista as aulas mais completas sobre IA no Youtube") {
+                  return (
+                    <a
+                      key={index}
+                      href="https://www.youtube.com/@ai.fercarvalho"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ textDecoration: "none" }}
+                    >
+                      <FeatureCard
+                        title={shortcut.title}
+                        background={shortcut.background}
+                        icon={shortcut.icon} />
+                    </a>
+                  );
+                }
                 // Card "Atalhos para IAs no WhatsApp" - scroll para ESPECIAL Poupa.ai
                 if (shortcut.title === "Atalhos para IAs no WhatsApp") {
                   return (
