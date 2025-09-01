@@ -22,13 +22,13 @@ const FeatureCard = ({ title, background, icon, image }: FeatureCardProps) => {
         />
       )}
       
-      <div className="relative z-10 flex flex-col justify-center h-full">
+      <div className="relative z-10 flex flex-col justify-start items-start h-full">
         {icon && (
-          <div className="mb-3 flex justify-center">
+          <div className="mb-3">
             {icon}
           </div>
         )}
-        <h3 className="text-white font-semibold text-lg leading-tight text-center">
+        <h3 className="text-white font-semibold text-lg leading-tight">
           {title}
         </h3>
       </div>
