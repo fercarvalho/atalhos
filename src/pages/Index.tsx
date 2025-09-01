@@ -18,7 +18,7 @@ const Index = () => {
       icon: <MessageCircle className="w-8 h-8 text-white" />
     },
     {
-      title: "Automatize suas finanças com o Poupa.ai 10% OFF: FERCARVALHO",
+      title: "Automatize suas finanças com o Poupa.ai       10% OFF: FERCARVALHO",
       background: "bg-[#3662e3]",
       icon: <PiggyBank className="w-8 h-8 text-white" />
     }
