@@ -18,8 +18,12 @@ const Index = () => {
       icon: <MessageCircle className="w-8 h-8 text-white" />
     },
     {
-      title: "Automatize suas finanças com o Poupa.ai",
-      background: "bg-white", // corrigido
+      title: (
+        <span style={{ color: "#3662e3" }}>
+          Automatize suas finanças com o Poupa.ai
+        </span>
+      ),
+      background: "bg-white",
       icon: <PiggyBank className="w-8 h-8" style={{ color: "#3662e3" }} />
     }
   ];
