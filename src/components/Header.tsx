@@ -79,7 +79,7 @@ const Header = () => {
       </div>
       {/* Barra de pesquisa flutuante para todas as telas */}
       {showFloatingSearch && (
-        <div className="fixed top-[1.5rem] left-1/2 z-50 w-11/12 max-w-sm -translate-x-1/2 scale-90 md:w-[400px] md:scale-100 bg-card rounded-xl shadow-lg px-2 py-2 flex items-center">
+        <div className="fixed top-[1.5rem] left-1/2 z-50 w-11/12 max-w-sm -translate-x-1/2 scale-80 md:w-[400px] md:scale-100 bg-card rounded-xl shadow-lg px-2 py-2 flex items-center">
           <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
           <Input
             type="search"
