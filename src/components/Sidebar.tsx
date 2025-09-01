@@ -22,10 +22,10 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* Botão do menu para mobile */}
+      {/* Botão do menu para abrir */}
       {!open && (
         <button
-          className="md:hidden fixed top-4 left-4 z-50 bg-card p-2 rounded-lg shadow"
+          className="fixed top-4 left-4 z-50 bg-card p-2 rounded-lg shadow"
           onClick={() => setOpen(true)}
           aria-label="Abrir menu"
         >
@@ -33,11 +33,11 @@ const Sidebar = () => {
         </button>
       )}
 
-      {/* Botão para fechar no mobile */}
+      {/* Botão para fechar */}
       {open && (
         <button
           onClick={() => setOpen(false)}
-          className="md:hidden fixed top-4 left-4 z-50 bg-card p-2 rounded-lg shadow"
+          className="fixed top-4 left-4 z-50 bg-card p-2 rounded-lg shadow"
           aria-label="Fechar menu"
         >
           <Menu className="w-6 h-6 text-foreground rotate-180" />
@@ -52,14 +52,13 @@ const Sidebar = () => {
           fixed top-0 left-0 z-40
           w-64
           ${open ? "translate-x-0" : "-translate-x-full"}
-          md:static md:translate-x-0 md:block
         `}
         style={{ maxWidth: "100vw" }}
       >
         <div className="p-4">
-          {/* Espaço extra abaixo do botão de fechar no mobile */}
+          {/* Espaço extra abaixo do botão de fechar */}
           {open && (
-            <div className="md:hidden h-12" />
+            <div className="h-12" />
           )}
           <nav className="space-y-1">
             {categories.map((category) => {
@@ -96,10 +95,10 @@ const Sidebar = () => {
         </div>
       </aside>
 
-      {/* Overlay para fechar o menu ao clicar fora (mobile) */}
+      {/* Overlay para fechar o menu ao clicar fora */}
       {open && (
         <div
-          className="fixed inset-0 bg-black/40 z-30 md:hidden"
+          className="fixed inset-0 bg-black/40 z-30"
           onClick={() => setOpen(false)}
         />
       )}
