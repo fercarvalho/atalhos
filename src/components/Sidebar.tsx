@@ -23,13 +23,15 @@ const Sidebar = () => {
   return (
     <>
       {/* Botão do menu para mobile */}
-      <button
-        className="md:hidden fixed top-4 left-4 z-50 bg-card p-2 rounded-lg shadow"
-        onClick={() => setOpen(true)}
-        aria-label="Abrir menu"
-      >
-        <Menu className="w-6 h-6 text-foreground" />
-      </button>
+      {!open && (
+        <button
+          className="md:hidden fixed top-4 left-4 z-50 bg-card p-2 rounded-lg shadow"
+          onClick={() => setOpen(true)}
+          aria-label="Abrir menu"
+        >
+          <Menu className="w-6 h-6 text-foreground" />
+        </button>
+      )}
 
       {/* Sidebar */}
       <aside
