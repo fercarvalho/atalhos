@@ -56,10 +56,6 @@ const Sidebar = () => {
         style={{ maxWidth: "100vw" }}
       >
         <div className="p-4">
-          {/* Espaço extra abaixo do botão de fechar */}
-          {open && (
-            <div className="h-12" />
-          )}
           <nav className="space-y-1">
             {categories.map((category) => {
               const Icon = category.icon;
