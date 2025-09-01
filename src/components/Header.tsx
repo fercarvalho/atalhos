@@ -1,5 +1,6 @@
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { SiTiktok, SiInstagram, SiYoutube } from "react-icons/si";
 
 const Header = () => {
   return (
@@ -31,7 +32,36 @@ const Header = () => {
             </div>
           </div>
           
-          <div className="w-24"></div> {/* Spacer for balance */}
+          {/* Ícones sociais alinhados verticalmente */}
+          <div className="flex flex-col items-end space-y-2">
+            <a
+              href="https://www.tiktok.com/@ai.fercarvalho"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 text-ios-blue font-bold"
+            >
+              <SiTiktok className="w-5 h-5 text-ios-blue" />
+              <span>/@ai.fercarvalho</span>
+            </a>
+            <a
+              href="https://www.instagram.com/ai.fercarvalho"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 text-ios-blue font-bold"
+            >
+              <SiInstagram className="w-5 h-5 text-ios-blue" />
+              <span>/@ai.fercarvalho</span>
+            </a>
+            <a
+              href="https://www.youtube.com/@ai.fercarvalho"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 text-ios-blue font-bold"
+            >
+              <SiYoutube className="w-5 h-5 text-ios-blue" />
+              <span>/@ai.fercarvalho</span>
+            </a>
+          </div>
         </div>
       </div>
     </header>
