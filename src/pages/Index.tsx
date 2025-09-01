@@ -81,12 +81,24 @@ const Index = () => {
             </div>
             <h2 className="text-2xl font-bold text-foreground mb-6">Destaques</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-              {/* Atalhos para IAs no WhatsApp */}
-              <FeatureCard
-                title={featuredShortcuts[0].title}
-                background={featuredShortcuts[0].background}
-                icon={featuredShortcuts[0].icon}
-              />
+              {/* Atalhos para IAs no WhatsApp - com scroll suave */}
+              <a
+                href="#especial-poupa-ai"
+                onClick={e => {
+                  e.preventDefault();
+                  const el = document.querySelector("#especial-poupa-ai");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                style={{ textDecoration: "none" }}
+              >
+                <FeatureCard
+                  title={featuredShortcuts[0].title}
+                  background={featuredShortcuts[0].background}
+                  icon={featuredShortcuts[0].icon}
+                />
+              </a>
               {/* Atalhos para WhatsApp - com scroll suave */}
               <a
                 href="#outros-atalhos-whatsapp"
