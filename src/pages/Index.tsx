@@ -108,6 +108,27 @@ const Index = () => {
             <h2 className="text-2xl font-bold text-foreground mb-6">Destaques</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {featuredShortcuts.map((shortcut, index) => {
+                // Card do Poupa.ai (com texto promocional) aponta para link externo
+                if (
+                  typeof shortcut.title === "object" &&
+                  shortcut.title?.props?.children?.[0] === "Automatize suas finanças com o Poupa.ai"
+                ) {
+                  return (
+                    <a
+                      key={index}
+                      href="https://poupa.ai/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ textDecoration: "none" }}
+                    >
+                      <FeatureCard
+                        title={shortcut.title}
+                        background={shortcut.background}
+                        icon={shortcut.icon}
+                      />
+                    </a>
+                  );
+                }
                 // Card 1: scroll para ESPECIAL Poupa.ai
                 if (index === 0) {
                   return (
@@ -150,21 +171,14 @@ const Index = () => {
                     </a>
                   );
                 }
-                // Card 3: botão Poupa.ai, link externo
+                // Outros cards: apenas exibem o card sem link
                 return (
-                  <a
+                  <FeatureCard
                     key={index}
-                    href="https://poupa.ai/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <FeatureCard
-                      title={shortcut.title}
-                      background={shortcut.background}
-                      icon={shortcut.icon}
-                    />
-                  </a>
+                    title={shortcut.title}
+                    background={shortcut.background}
+                    icon={shortcut.icon}
+                  />
                 );
               })}
             </div>
