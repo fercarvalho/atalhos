@@ -78,7 +78,7 @@ function Index() {
   const tutorials = [
     {
       title: "[ESPECIAL] [Poupa.ai] Registrando Despesas Recorrentes",
-      image: "imagens/tutoriais/020101.jpg"
+      image: "/imagens/tutoriais/020101.jpg"
     }
   ];
 
