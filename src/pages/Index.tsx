@@ -29,7 +29,7 @@ function Index() {
         <>
           Automatize suas finanças com o Poupa.ai
           <br />
-          10% OFF: FERCARVALHO
+          10% OFF: FECARVALHO
         </>
       ),
       background: "bg-[#3662e3]",
