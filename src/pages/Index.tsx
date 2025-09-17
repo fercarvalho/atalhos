@@ -115,7 +115,7 @@ function Index() {
                   return (
                     <a
                       key={index}
-                      href="https://poupa.ai/"
+                      href="https://poupa.ai/?coupon=FECARVALHO"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ textDecoration: "none" }}
