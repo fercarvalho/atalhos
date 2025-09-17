@@ -1,8 +1,32 @@
-import { Search } from "lucide-react";
+import { Search, Sun, Moon, Monitor } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { SiTiktok, SiInstagram, SiYoutube } from "react-icons/si";
+import { useThemeContext } from "@/contexts/ThemeContext";
 
 const Header = () => {
+  const { theme, setTheme, currentTheme } = useThemeContext();
+
+  const toggleTheme = () => {
+    if (theme === 'system') {
+      setTheme('light');
+    } else if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('system');
+    }
+  };
+
+  const getThemeIcon = () => {
+    if (theme === 'system') {
+      return <Monitor className="w-4 h-4" />;
+    } else if (theme === 'light') {
+      return <Sun className="w-4 h-4" />;
+    } else {
+      return <Moon className="w-4 h-4" />;
+    }
+  };
+
   return (
     <header className="bg-card border-b border-border shadow-sm h-[20rem] md:h-auto flex items-center">
       <div className="container mx-auto px-4 py-4">
@@ -62,6 +86,17 @@ const Header = () => {
               <SiInstagram className="w-5 h-5 text-ios-blue" />
               <span>/@ai.fercarvalho</span>
             </a>
+            
+            {/* Botão de alternância de tema */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleTheme}
+              className="mt-2 p-2 hover:bg-muted rounded-lg transition-colors"
+              title={`Tema atual: ${theme === 'system' ? 'Sistema' : theme === 'light' ? 'Claro' : 'Escuro'}`}
+            >
+              {getThemeIcon()}
+            </Button>
           </div>
         </div>
       </div>
