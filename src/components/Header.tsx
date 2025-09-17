@@ -45,15 +45,28 @@ const Header = () => {
             </h1>
           </div>
           
-          {/* Barra de pesquisa fixa e alinhada */}
-          <div className="fixed left-1/2 transform -translate-x-1/2 w-[60vw] max-w-md z-50 top-[1.5rem] md:top-[2.5rem]">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-              <Input
-                type="search"
-                placeholder="Buscar"
-                className="pl-10 bg-muted border-0 focus:ring-2 focus:ring-ios-blue/20 w-full"
-              />
+          {/* Barra de pesquisa fixa e alinhada com botão de tema */}
+          <div className="fixed left-1/2 transform -translate-x-1/2 z-50 top-[1.5rem] md:top-[2.5rem]">
+            <div className="flex items-center gap-2">
+              <div className="relative w-[60vw] max-w-md">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                <Input
+                  type="search"
+                  placeholder="Buscar"
+                  className="pl-10 bg-muted border-0 focus:ring-2 focus:ring-ios-blue/20 w-full"
+                />
+              </div>
+              
+              {/* Botão de alternância de tema */}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={toggleTheme}
+                className="p-2 hover:bg-muted rounded-lg transition-colors bg-muted/50 backdrop-blur-sm"
+                title={`Tema atual: ${theme === 'system' ? 'Sistema' : theme === 'light' ? 'Claro' : 'Escuro'}`}
+              >
+                {getThemeIcon()}
+              </Button>
             </div>
           </div>
           
@@ -86,17 +99,6 @@ const Header = () => {
               <SiInstagram className="w-5 h-5 text-ios-blue" />
               <span>/@ai.fercarvalho</span>
             </a>
-            
-            {/* Botão de alternância de tema */}
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleTheme}
-              className="mt-2 p-2 hover:bg-muted rounded-lg transition-colors"
-              title={`Tema atual: ${theme === 'system' ? 'Sistema' : theme === 'light' ? 'Claro' : 'Escuro'}`}
-            >
-              {getThemeIcon()}
-            </Button>
           </div>
         </div>
       </div>
