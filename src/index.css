@@ -125,7 +125,7 @@ All colors MUST be HSL.
 
   /* Dark Theme - força manual - #0D0D0D */
   .dark {
-    --background: 0 0% 5.1%;
+    --background: 0 0% 5.1% !important;
     --foreground: 0 0% 95%;
 
     --card: 0 0% 6.7%;
@@ -169,6 +169,14 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    font-family: Roboto, sans-serif;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Força a cor específica para o tema escuro manual */
+  .dark body {
+    background-color: #0D0D0D !important;
   }
 }
