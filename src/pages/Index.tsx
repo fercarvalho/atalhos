@@ -29,7 +29,7 @@ function Index() {
         <>
           Automatize suas finanças com o Poupa.ai
           <br />
-          10% OFF: FERCARVALHO
+          10% OFF: FECARVALHO
         </>
       ),
       background: "bg-[#3662e3]",
@@ -115,7 +115,7 @@ function Index() {
                   return (
                     <a
                       key={index}
-                      href="https://poupa.ai/"
+                      href="https://poupa.ai/?coupon=FECARVALHO"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ textDecoration: "none" }}
