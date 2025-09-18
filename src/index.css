@@ -246,7 +246,7 @@ All colors MUST be HSL.
 @layer components {
   .shortcut-card {
     @apply relative rounded-xl p-4 cursor-pointer transition-all duration-300;
-    @apply hover:scale-105 hover:shadow-card-hover h-36 min-h-36;
+    @apply hover:scale-105 hover:shadow-card-hover h-36 min-h-40;
     background: linear-gradient(135deg, #10b981, #059669) !important;
   }
 
