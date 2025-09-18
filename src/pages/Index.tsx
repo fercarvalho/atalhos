@@ -3,13 +3,14 @@ import Sidebar from "@/components/Sidebar";
 import FeatureCard from "@/components/FeatureCard";
 import ShortcutCard from "@/components/ShortcutCard";
 import TutorialCard from "@/components/TutorialCard";
+import TutorialSearchCard from "@/components/TutorialSearchCard";
 import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank, Youtube, Bot } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 import { useSearch } from "@/hooks/useSearch";
-import { shortcuts } from "@/data/shortcuts";
+import { shortcuts, tutorials } from "@/data/shortcuts";
 
 function Index() {
-  const { filteredData, isSearching, searchTerm, totalResults } = useSearch();
+  const { filteredData, filteredTutorials, isSearching, searchTerm, totalResults } = useSearch();
 
   const featuredShortcuts = [
     {
@@ -78,12 +79,7 @@ function Index() {
     }
   ];
 
-  const tutorials = [
-    {
-      title: "[ESPECIAL] [Poupa.ai] Registrando Despesas Recorrentes",
-      image: "tutorial01.jpg"
-    }
-  ];
+  // Não precisamos mais desta variável, usaremos os dados importados
 
   return (
     <div className="min-h-screen bg-background">
@@ -105,28 +101,64 @@ function Index() {
                 </span>
               </div>
               
-              {filteredData.length > 0 ? (
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                  {filteredData.map((shortcut) => (
-                    <a
-                      key={shortcut.id}
-                      href={shortcut.icloudUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ textDecoration: "none" }}
-                    >
-                      <ShortcutCard
-                        title={shortcut.title}
-                        icon={shortcut.icon || "🔗"}
-                        gradient={shortcut.gradient || "bg-gradient-to-br from-blue-500 to-purple-600"}
-                      />
-                    </a>
-                  ))}
-                </div>
+              {(filteredData.length > 0 || filteredTutorials.length > 0) ? (
+                <>
+                  {/* Atalhos encontrados */}
+                  {filteredData.length > 0 && (
+                    <div className="mb-8">
+                      <h3 className="text-lg font-semibold text-foreground mb-4">
+                        Atalhos ({filteredData.length})
+                      </h3>
+                      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                        {filteredData.map((shortcut) => (
+                          <a
+                            key={shortcut.id}
+                            href={shortcut.icloudUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ textDecoration: "none" }}
+                          >
+                            <ShortcutCard
+                              title={shortcut.title}
+                              icon={shortcut.icon || "🔗"}
+                              gradient={shortcut.gradient || "bg-gradient-to-br from-blue-500 to-purple-600"}
+                            />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Tutoriais encontrados */}
+                  {filteredTutorials.length > 0 && (
+                    <div className="mb-8">
+                      <h3 className="text-lg font-semibold text-foreground mb-4">
+                        Tutoriais ({filteredTutorials.length})
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {filteredTutorials.map((tutorial) => (
+                          <a
+                            key={tutorial.id}
+                            href={tutorial.videoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ textDecoration: "none" }}
+                          >
+                            <TutorialSearchCard
+                              title={tutorial.title}
+                              description={tutorial.description}
+                              duration={tutorial.duration}
+                            />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
               ) : (
                 <div className="text-center py-12">
                   <p className="text-muted-foreground text-lg">
-                    Nenhum atalho encontrado para "{searchTerm}"
+                    Nenhum resultado encontrado para "{searchTerm}"
                   </p>
                   <p className="text-muted-foreground mt-2">
                     Tente usar termos diferentes ou mais gerais
@@ -331,20 +363,23 @@ function Index() {
                 </div>
               </section>
 
-              {/* Lançamentos Section */}
+              {/* Tutoriais Section */}
               <section>
                 <h2 className="text-2xl font-bold text-foreground mb-6">Tutoriais</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  <a
-                    href="https://www.youtube.com/watch?v=qmq_ICYZt20"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <TutorialCard
-                      title={tutorials[0].title}
-                      image={tutorials[0].image} />
-                  </a>
+                  {tutorials.map((tutorial) => (
+                    <a
+                      key={tutorial.id}
+                      href={tutorial.videoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ textDecoration: "none" }}
+                    >
+                      <TutorialCard
+                        title={tutorial.title}
+                        image={tutorial.image || "tutorial01.jpg"} />
+                    </a>
+                  ))}
                 </div>
               </section>
             </>

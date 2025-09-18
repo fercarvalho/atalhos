@@ -1,6 +1,6 @@
 import { useMemo, useCallback } from 'react';
 import { useSearchContext } from '@/contexts/SearchContext';
-import { shortcuts } from '@/data/shortcuts';
+import { shortcuts, tutorials } from '@/data/shortcuts';
 
 export const useSearch = () => {
   const { searchTerm, setSearchTerm } = useSearchContext();
@@ -19,16 +19,34 @@ export const useSearch = () => {
     );
   }, [searchTerm]);
 
+  const filteredTutorials = useMemo(() => {
+    if (!searchTerm.trim()) {
+      return tutorials;
+    }
+
+    const lowercaseQuery = searchTerm.toLowerCase();
+    
+    return tutorials.filter(tutorial => 
+      tutorial.title.toLowerCase().includes(lowercaseQuery) ||
+      (tutorial.description && tutorial.description.toLowerCase().includes(lowercaseQuery)) ||
+      tutorial.category.toLowerCase().includes(lowercaseQuery)
+    );
+  }, [searchTerm]);
+
   const handleSearch = useCallback((query: string) => {
     setSearchTerm(query);
   }, [setSearchTerm]);
 
+  const totalResults = filteredData.length + filteredTutorials.length;
+  const hasResults = totalResults > 0;
+
   return {
     searchTerm,
     filteredData,
+    filteredTutorials,
     handleSearch,
-    hasResults: filteredData.length > 0,
-    totalResults: filteredData.length,
+    hasResults,
+    totalResults,
     isSearching: searchTerm.trim().length > 0
   };
 };

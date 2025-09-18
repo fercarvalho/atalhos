@@ -14,6 +14,17 @@ export type Shortcut = {
   updatedAt?: string
 }
 
+export type Tutorial = {
+  id: string
+  title: string
+  description?: string
+  category: string
+  image?: string
+  videoUrl: string
+  duration?: string
+  updatedAt?: string
+}
+
 export const shortcuts: Shortcut[] = [
   {
     id: "adicionar-banco",
@@ -79,6 +90,19 @@ export const shortcuts: Shortcut[] = [
     gradient: "bg-gradient-to-br from-green-500 to-emerald-600",
     icloudUrl: "https://www.icloud.com/shortcuts/efcf18326dc84e33829b2c0cd6702831",
     minIOS: "14.0",
+    updatedAt: "2025-09-18"
+  }
+]
+
+export const tutorials: Tutorial[] = [
+  {
+    id: "especial-poupa-ai-despesas-recorrentes",
+    title: "[ESPECIAL] [Poupa.ai] Registrando Despesas Recorrentes",
+    description: "Aprenda a configurar e usar o sistema de despesas recorrentes do Poupa.ai para automatizar seu controle financeiro.",
+    category: "Tutorial",
+    image: "tutorial01.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=qmq_ICYZt20",
+    duration: "15:30",
     updatedAt: "2025-09-18"
   }
 ]
