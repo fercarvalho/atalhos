@@ -28,6 +28,7 @@ const Footer = () => {
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
               >*/}
                 Termos de Uso
+            <p></p>
               {/*</a>*/}
               {/*<a 
                 href="/midia-kit" 
