@@ -1,5 +1,5 @@
 import { Instagram, Youtube } from "lucide-react";
-import TikTokIcon from "./TikTokIcon";
+import { SiTiktok } from "react-icons/si";
 
 const Footer = () => {
   return (
@@ -29,69 +29,80 @@ const Footer = () => {
               >
                 Termos de Uso
               </a>
-              <p></p>
               {/*<a 
                 href="/midia-kit" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
               >*/}
-                Mídia Kit
+                <span className="text-muted-foreground text-sm">
+                  Mídia Kit
+                </span>
               {/*</a>*/}
             </nav>
           </div>
 
           {/* SSL e Redes Sociais */}
           <div className="space-y-4">
-            {/* SSL Certificate */}
-            <div className="flex justify-center md:justify-end">
-              <a
-                href="https://transparencyreport.google.com/safe-browsing/search?url=fercarvalho.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block"
-              >
-                <div className="bg-green-600 text-white px-3 py-2 rounded-lg text-center text-xs font-medium">
-                  <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-yellow-400 rounded-full flex items-center justify-center">
-                      <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                    </div>
-                    <div>
-                      <div className="text-xs font-semibold">SITE SEGURO</div>
-                      <div className="text-xs opacity-90">SSL CERTIFICADO</div>
+            {/* SSL Certificate e Redes Sociais Alinhados */}
+            <div className="flex flex-col items-center md:items-end gap-4">
+              {/* Container com largura fixa para alinhamento */}
+              <div className="w-fit">
+                {/* SSL Certificate */}
+                <a
+                  href="https://transparencyreport.google.com/safe-browsing/search?url=fercarvalho.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mb-4"
+                >
+                  <div className="bg-green-600 text-white px-3 py-2 rounded-lg text-center text-xs font-medium">
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 bg-yellow-400 rounded-full flex items-center justify-center">
+                        <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                      </div>
+                      <div>
+                        <div className="text-xs font-semibold">SITE SEGURO</div>
+                        <div className="text-xs opacity-90">SSL CERTIFICADO</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
-            </div>
+                </a>
 
-            {/* Redes Sociais */}
-            <div className="flex justify-center md:justify-end gap-4">
-              <a
-                href="https://www.instagram.com/ai.fercarvalho"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-pink-500 transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-6 h-6" />
-              </a>
-              <a
-                href="https://www.tiktok.com/@ai.fercarvalho"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-black transition-colors"
-                aria-label="TikTok"
-              >
-                <TikTokIcon />
-              </a>
-              <a
-                href="https://www.youtube.com/@ai.fercarvalho"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-red-500 transition-colors"
-                aria-label="YouTube"
-              >
-                <Youtube className="w-6 h-6" />
-              </a>
+                {/* Redes Sociais - Grid de 3 colunas para alinhamento perfeito */}
+                <div className="grid grid-cols-3 gap-0 w-full">
+                  <div className="flex justify-start">
+                    <a
+                      href="https://www.instagram.com/ai.fercarvalho"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-pink-500 transition-colors"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="w-6 h-6" />
+                    </a>
+                  </div>
+                  <div className="flex justify-center">
+                    <a
+                      href="https://www.tiktok.com/@ai.fercarvalho"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-black transition-colors"
+                      aria-label="TikTok"
+                    >
+                      <SiTiktok className="w-6 h-6" />
+                    </a>
+                  </div>
+                  <div className="flex justify-end">
+                    <a
+                      href="https://www.youtube.com/@ai.fercarvalho"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-red-500 transition-colors"
+                      aria-label="YouTube"
+                    >
+                      <Youtube className="w-6 h-6" />
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
