@@ -47,14 +47,14 @@ const Header = () => {
     <header className="bg-card border-b border-border shadow-sm h-[20rem] md:h-auto flex items-center">
       <div className="container mx-auto px-4 py-4">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div className="flex items-center space-x-3 ml-12">
+          <div className="flex items-center justify-center md:justify-start space-x-3 md:ml-12 w-full md:w-auto">
             {/* Troque a imagem desenhada por sua imagem */}
             <img 
               src="/logo.png" 
               alt="Logo" 
               className="w-8 h-8 rounded-lg"
             />
-            <h1 className="text-xl font-bold text-foreground">
+            <h1 className="text-xl font-bold text-foreground text-center md:text-left">
               <span className="text-ios-blue">Galeria de Atalhos</span>
               <br />
               <span className="text-youtube-red">Por Fernando Carvalho</span>
