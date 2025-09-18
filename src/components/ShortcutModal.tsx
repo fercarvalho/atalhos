@@ -31,17 +31,17 @@ const ShortcutModal: React.FC<ShortcutModalProps> = ({
       className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
       onClick={handleBackdropClick}
     >
-      <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl max-w-md w-full mx-4 relative overflow-hidden shadow-2xl">
+      <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl max-w-md w-full mx-4 relative overflow-y-auto max-h-[90vh] shadow-2xl">
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+          className="absolute top-2 sm:top-4 right-2 sm:right-4 z-10 p-1.5 sm:p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
         >
-          <X className="w-5 h-5 text-white" />
+          <X className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
         </button>
         
         {/* Badges no canto superior esquerdo */}
-        <div className="absolute top-4 left-4 right-16 z-10 flex flex-col gap-2">
+        <div className="absolute top-2 sm:top-4 left-2 sm:left-4 right-12 sm:right-16 z-10 flex flex-col gap-1 sm:gap-2">
           {/* Badge AI */}
           {shortcut.isAI && (
             <div className="flex items-center gap-2 flex-wrap">
@@ -80,7 +80,7 @@ const ShortcutModal: React.FC<ShortcutModalProps> = ({
         </div>
 
         {/* Header with gradient and icon */}
-        <div className="pt-28 pb-8 px-8 text-white relative">
+        <div className="pt-28 sm:pt-32 pb-8 px-4 sm:px-8 text-white relative">
           <div className="flex flex-col items-center text-center">
             <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm mb-4 shadow-lg">
               <span className="text-4xl">{shortcut.icon || '⚡'}</span>
@@ -93,7 +93,7 @@ const ShortcutModal: React.FC<ShortcutModalProps> = ({
         </div>
 
         {/* Content with transparent overlay */}
-        <div className="bg-white/30 dark:bg-gray-900/30 backdrop-blur-sm p-6 space-y-4">
+        <div className="bg-white/30 dark:bg-gray-900/30 backdrop-blur-sm p-4 sm:p-6 space-y-3 sm:space-y-4">
           {/* Install button */}
           <button
             onClick={onInstall}
