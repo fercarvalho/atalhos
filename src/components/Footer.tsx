@@ -23,14 +23,13 @@ const Footer = () => {
               >
                 Sobre Mim
               </a>
-              <p></p>
-              {/*<a 
+              <a 
                 href="https://fercarvalho.com/politicadeprivacidade" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-              >*/}
+              >
                 Termos de Uso
-            <p></p>
-              {/*</a>*/}
+              </a>
+              <p></p>
               {/*<a 
                 href="/midia-kit" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
