@@ -23,12 +23,12 @@ const Footer = () => {
               >
                 Sobre Mim
               </a>
-              <a 
+              {/*<a 
                 href="https://fercarvalho.com/politicadeprivacidade" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-              >
+              >*/}
                 Termos de Uso
-              </a>
+              {/*</a>*/}
               {/*<a 
                 href="/midia-kit" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
@@ -95,10 +95,31 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-border">
+        {/* Informações Pessoais e Legais */}
+        <div className="mt-8 pt-6 border-t border-border">
+          <div className="text-center space-y-2">
+            <p className="text-muted-foreground text-sm font-medium">
+              41.748.511 FERNANDO CARVALHO GOMES DOS SANTOS
+            </p>
+            <p className="text-muted-foreground text-sm">
+              Rua das Humaitá, nº 635 - Londrina, PR
+            </p>
+            <p className="text-muted-foreground text-sm">
+              CEP: 86060-060
+            </p>
+            <p className="text-muted-foreground text-sm">
+              CNPJ: 41.748.511/0001-73
+            </p>
+          </div>
+        </div>
+
+        {/* Copyright e Disclaimer */}
+        <div className="mt-6 pt-6 border-t border-border space-y-3">
           <p className="text-center text-muted-foreground text-sm">
-            2025 © Todos os direitos registrados
+            © 2025 Viver da PJ ME. Todos os direitos reservados. CNPJ: 41.748.511/0001-73
+          </p>
+          <p className="text-center text-muted-foreground text-xs leading-relaxed">
+            Este site e os produtos e serviços oferecidos neste site não são associados, afiliados, endossados ou patrocinados pelo Facebook, nem foram revisados, testados ou certificados pelo Facebook.
           </p>
         </div>
       </div>
