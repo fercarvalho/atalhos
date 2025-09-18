@@ -71,7 +71,7 @@ const Header = () => {
                   placeholder="Buscar atalhos..."
                   value={inputValue}
                   onChange={handleSearchChange}
-                  className="pl-10 bg-muted border-0 focus:ring-2 focus:ring-ios-blue/20 w-full"
+                  className="pl-10 bg-muted/50 backdrop-blur-sm border-0 focus:ring-2 focus:ring-ios-blue/20 w-full transition-colors hover:bg-muted/60"
                 />
               </div>
               
