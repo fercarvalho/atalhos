@@ -21,7 +21,7 @@ const Footer = () => {
                 href="/sobre" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
               >
-                Sobre Nós
+                Sobre Mim
               </a>
               <a 
                 href="/termos" 
