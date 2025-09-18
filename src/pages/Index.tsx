@@ -3,7 +3,6 @@ import Sidebar from "@/components/Sidebar";
 import FeatureCard from "@/components/FeatureCard";
 import ShortcutCard from "@/components/ShortcutCard";
 import TutorialCard from "@/components/TutorialCard";
-import TutorialSearchCard from "@/components/TutorialSearchCard";
 import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank, Youtube, Bot } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 import { useSearch } from "@/hooks/useSearch";
@@ -105,7 +104,7 @@ function Index() {
                       <h3 className="text-lg font-semibold text-foreground mb-4">
                         Tutoriais ({filteredTutorials.length})
                       </h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {filteredTutorials.map((tutorial) => (
                           <a
                             key={tutorial.id}
@@ -114,10 +113,9 @@ function Index() {
                             rel="noopener noreferrer"
                             style={{ textDecoration: "none" }}
                           >
-                            <TutorialSearchCard
+                            <TutorialCard
                               title={tutorial.title}
-                              description={tutorial.description}
-                              duration={tutorial.duration}
+                              image={tutorial.image || "tutorial01.jpg"}
                             />
                           </a>
                         ))}
