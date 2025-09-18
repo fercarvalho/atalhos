@@ -18,7 +18,7 @@ const Footer = () => {
           <div className="space-y-4">
             <nav className="flex flex-col space-y-2">
               <a 
-                href="/sobre" 
+                href="https://fercarvalho.com/" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
               >
                 Sobre Mim
