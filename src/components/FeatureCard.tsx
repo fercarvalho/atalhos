@@ -10,7 +10,7 @@ interface FeatureCardProps {
 const FeatureCard = ({ title, background, icon, image }: FeatureCardProps) => {
   return (
     <div className={`
-      relative overflow-hidden rounded-xl p-6 h-[220px] cursor-pointer
+      relative overflow-hidden rounded-xl p-6 h-[200px] cursor-pointer
       transition-all duration-300 hover:scale-105 hover:shadow-card-hover
       ${background}
     `}>
