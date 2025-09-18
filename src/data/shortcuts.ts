@@ -12,6 +12,8 @@ export type Shortcut = {
   permissions?: string[]
   cover?: string
   updatedAt?: string
+  isPremium?: boolean
+  isAI?: boolean
 }
 
 export type Tutorial = {
@@ -35,7 +37,8 @@ export const shortcuts: Shortcut[] = [
     gradient: "bg-gradient-ai",
     icloudUrl: "https://www.icloud.com/shortcuts/def910d037934f2ab15be19a448ef1dc",
     minIOS: "16.0",
-    updatedAt: "2025-08-31"
+    updatedAt: "2025-08-31",
+    isAI: true
   },
   {
     id: "adicionar-categoria",
@@ -46,7 +49,8 @@ export const shortcuts: Shortcut[] = [
     gradient: "bg-gradient-premium",
     icloudUrl: "https://www.icloud.com/shortcuts/9c1508a048e14266b454c8830c952926",
     minIOS: "16.0",
-    updatedAt: "2025-08-31"
+    updatedAt: "2025-08-31",
+    isPremium: true
   },
   {
     id: "adicionar-cartao",
@@ -57,7 +61,9 @@ export const shortcuts: Shortcut[] = [
     gradient: "bg-gradient-instagram",
     icloudUrl: "https://www.icloud.com/shortcuts/da294b5afa904afaa0ba0d8a376ffdad",
     minIOS: "16.0",
-    updatedAt: "2025-08-31"
+    updatedAt: "2025-08-31",
+    isPremium: false,
+    isAI: false
   },
   {
     id: "adicionar-transacao",
@@ -68,7 +74,9 @@ export const shortcuts: Shortcut[] = [
     gradient: "bg-gradient-watch",
     icloudUrl: "https://www.icloud.com/shortcuts/640c55856bfb452585dc5695cfe62e07",
     minIOS: "16.0",
-    updatedAt: "2025-08-31"
+    updatedAt: "2025-08-31",
+    isPremium: false,
+    isAI: false
   },
   {
     id: "adicionar-despesa-cartao-automatico",
@@ -79,7 +87,9 @@ export const shortcuts: Shortcut[] = [
     gradient: "bg-gradient-whatsapp",
     icloudUrl: "https://www.icloud.com/shortcuts/ad68db3ee8d6444682fdb98080c98a2f",
     minIOS: "16.0",
-    updatedAt: "2025-08-31"
+    updatedAt: "2025-08-31",
+    isPremium: false,
+    isAI: false
   },
   {
     id: "chama-no-zap",
@@ -90,7 +100,9 @@ export const shortcuts: Shortcut[] = [
     gradient: "bg-gradient-to-br from-green-500 to-emerald-600",
     icloudUrl: "https://www.icloud.com/shortcuts/efcf18326dc84e33829b2c0cd6702831",
     minIOS: "14.0",
-    updatedAt: "2025-09-18"
+    updatedAt: "2025-09-18",
+    isPremium: false,
+    isAI: false
   }
 ]
 

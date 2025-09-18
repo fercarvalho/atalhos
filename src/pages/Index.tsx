@@ -51,36 +51,6 @@ function Index() {
     }
   ];
 
-  const popularShortcuts = [
-    {
-      title: "Adicionar Banco",
-      icon: "🏦",
-      gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
-    },
-    {
-      title: "Adicionar Cartão",
-      icon: "💳",
-      gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
-    },
-    {
-      title: "Adicionar Categoria",
-      icon: "🏷️",
-      gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
-    },
-    {
-      title: "Adicionar Transação",
-      icon: "🧾",
-      gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
-    },
-    {
-      title: "Adicionar Transação do Cartão AUTOMÁTICO",
-      icon: "📩",
-      gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
-    }
-  ];
-
-  // Não precisamos mais desta variável, usaremos os dados importados
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -121,7 +91,7 @@ function Index() {
                             <ShortcutCard
                               title={shortcut.title}
                               icon={shortcut.icon || "🔗"}
-                              gradient={shortcut.gradient || "bg-gradient-to-br from-blue-500 to-purple-600"}
+                              gradient="bg-gradient-to-br from-green-500 to-emerald-600"
                             />
                           </a>
                         ))}
@@ -315,12 +285,20 @@ function Index() {
               <section id="especial-poupa-ai" className="mb-8">
                 <h2 className="text-2xl font-bold text-foreground mb-6">ESPECIAL Poupa.ai</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                  {popularShortcuts.map((shortcut, index) => (
-                    <ShortcutCard
-                      key={index}
-                      title={shortcut.title}
-                      icon={shortcut.icon}
-                      gradient={shortcut.gradient} />
+                  {shortcuts.slice(0, 5).map((shortcut) => (
+                    <a
+                      key={shortcut.id}
+                      href={shortcut.icloudUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ textDecoration: "none" }}
+                    >
+                      <ShortcutCard
+                        title={shortcut.title}
+                        icon={shortcut.icon}
+                        gradient="bg-gradient-to-br from-green-500 to-emerald-600"
+                      />
+                    </a>
                   ))}
                 </div>
               </section>
@@ -355,7 +333,7 @@ function Index() {
                         <ShortcutCard
                           title={shortcut.title}
                           icon={shortcut.icon || "💬"}
-                          gradient={shortcut.gradient || "bg-gradient-to-br from-green-500 to-emerald-600"}
+                          gradient="bg-gradient-to-br from-green-500 to-emerald-600"
                         />
                       </a>
                     ));
