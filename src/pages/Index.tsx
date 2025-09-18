@@ -6,6 +6,7 @@ import TutorialCard from "@/components/TutorialCard";
 import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank, Youtube, Bot } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 import { useSearch } from "@/hooks/useSearch";
+import { shortcuts } from "@/data/shortcuts";
 
 function Index() {
   const { filteredData, isSearching, searchTerm, totalResults } = useSearch();
@@ -296,18 +297,37 @@ function Index() {
               <section id="outros-atalhos-whatsapp" className="mb-8">
                 <h2 className="text-2xl font-bold text-foreground mb-6">Outros Atalhos para WhatsApp</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                  <a
-                    href="https://www.icloud.com/shortcuts/efcf18326dc84e33829b2c0cd6702831"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <ShortcutCard
-                      title="Chama no Zap"
-                      icon="💬"
-                      gradient="bg-gradient-to-br from-green-500 to-emerald-600"
-                    />
-                  </a>
+                  {/* Buscar e mostrar atalhos da categoria WhatsApp */}
+                  {(() => {
+                    // Filtrar atalhos da categoria WhatsApp dos dados originais
+                    const whatsappShortcuts = shortcuts.filter(shortcut => 
+                      shortcut.category.toLowerCase().includes('whatsapp')
+                    );
+                    
+                    if (whatsappShortcuts.length === 0) {
+                      return (
+                        <div className="text-center text-muted-foreground p-4 col-span-full">
+                          <p>Nenhum atalho para WhatsApp encontrado</p>
+                        </div>
+                      );
+                    }
+                    
+                    return whatsappShortcuts.map((shortcut) => (
+                      <a
+                        key={shortcut.id}
+                        href={shortcut.icloudUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ textDecoration: "none" }}
+                      >
+                        <ShortcutCard
+                          title={shortcut.title}
+                          icon={shortcut.icon || "💬"}
+                          gradient={shortcut.gradient || "bg-gradient-to-br from-green-500 to-emerald-600"}
+                        />
+                      </a>
+                    ));
+                  })()}
                 </div>
               </section>
 

@@ -69,5 +69,16 @@ export const shortcuts: Shortcut[] = [
     icloudUrl: "https://www.icloud.com/shortcuts/ad68db3ee8d6444682fdb98080c98a2f",
     minIOS: "16.0",
     updatedAt: "2025-08-31"
+  },
+  {
+    id: "chama-no-zap",
+    title: "Chama no Zap",
+    tagline: "Fale com números no WhatsApp sem precisar salvar o contato",
+    category: "WhatsApp",
+    icon: "💬",
+    gradient: "bg-gradient-to-br from-green-500 to-emerald-600",
+    icloudUrl: "https://www.icloud.com/shortcuts/efcf18326dc84e33829b2c0cd6702831",
+    minIOS: "14.0",
+    updatedAt: "2025-09-18"
   }
 ]
