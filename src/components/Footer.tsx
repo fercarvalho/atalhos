@@ -29,12 +29,12 @@ const Footer = () => {
               >
                 Termos de Uso
               </a>
-              <a 
+              {/*<a 
                 href="/midia-kit" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-              >
+              >*/}
                 Mídia Kit
-              </a>
+              {/*</a>*/}
             </nav>
           </div>
 
