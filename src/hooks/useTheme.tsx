@@ -27,9 +27,10 @@ export const useTheme = () => {
     const root = window.document.documentElement;
     
     if (theme === 'system') {
-      // Usar tema do sistema - remover atributo para usar CSS media query
+      // Usar tema do sistema - aplicar classe correspondente ao tema detectado
       root.removeAttribute('data-theme');
       root.classList.remove('light', 'dark');
+      root.classList.add(systemTheme);
     } else {
       // Usar tema manual
       root.setAttribute('data-theme', theme);

@@ -4,13 +4,29 @@ import FeatureCard from "@/components/FeatureCard";
 import ShortcutCard from "@/components/ShortcutCard";
 import TutorialCard from "@/components/TutorialCard";
 import Footer from "@/components/Footer";
+import ShortcutModal from "@/components/ShortcutModal";
 import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank, Youtube, Bot } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 import { useSearch } from "@/hooks/useSearch";
+import { useShortcutModal } from "@/contexts/ShortcutModalContext";
 import { shortcuts, tutorials } from "@/data/shortcuts";
 
 function Index() {
   const { filteredData, filteredTutorials, isSearching, searchTerm, totalResults } = useSearch();
+  const { 
+    selectedShortcut, 
+    isModalOpen, 
+    closeModal, 
+    incrementClickCount, 
+    getClickCount 
+  } = useShortcutModal();
+
+  const handleInstall = () => {
+    if (selectedShortcut) {
+      incrementClickCount(selectedShortcut.id);
+      window.open(selectedShortcut.icloudUrl, '_blank');
+    }
+  };
 
   const featuredShortcuts = [
     {
@@ -81,19 +97,10 @@ function Index() {
                       </h3>
                       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                         {filteredData.map((shortcut) => (
-                          <a
+                          <ShortcutCard
                             key={shortcut.id}
-                            href={shortcut.icloudUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{ textDecoration: "none" }}
-                          >
-                            <ShortcutCard
-                              title={shortcut.title}
-                              icon={shortcut.icon || "🔗"}
-                              gradient="bg-gradient-to-br from-green-500 to-emerald-600"
-                            />
-                          </a>
+                            shortcut={shortcut}
+                          />
                         ))}
                       </div>
                     </div>
@@ -285,19 +292,10 @@ function Index() {
                 <h2 className="text-2xl font-bold text-foreground mb-6">ESPECIAL Poupa.ai</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                   {shortcuts.slice(0, 5).map((shortcut) => (
-                    <a
+                    <ShortcutCard
                       key={shortcut.id}
-                      href={shortcut.icloudUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ textDecoration: "none" }}
-                    >
-                      <ShortcutCard
-                        title={shortcut.title}
-                        icon={shortcut.icon}
-                        gradient="bg-gradient-to-br from-green-500 to-emerald-600"
-                      />
-                    </a>
+                      shortcut={shortcut}
+                    />
                   ))}
                 </div>
               </section>
@@ -322,19 +320,10 @@ function Index() {
                     }
                     
                     return whatsappShortcuts.map((shortcut) => (
-                      <a
+                      <ShortcutCard
                         key={shortcut.id}
-                        href={shortcut.icloudUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ textDecoration: "none" }}
-                      >
-                        <ShortcutCard
-                          title={shortcut.title}
-                          icon={shortcut.icon || "💬"}
-                          gradient="bg-gradient-to-br from-green-500 to-emerald-600"
-                        />
-                      </a>
+                        shortcut={shortcut}
+                      />
                     ));
                   })()}
                 </div>
@@ -364,6 +353,17 @@ function Index() {
         </main>
       </div>
       <Footer />
+
+      {/* Modal de Atalho */}
+      {selectedShortcut && (
+        <ShortcutModal
+          shortcut={selectedShortcut}
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          clickCount={getClickCount(selectedShortcut.id)}
+          onInstall={handleInstall}
+        />
+      )}
     </div>
   );
 }

@@ -14,6 +14,8 @@ export type Shortcut = {
   updatedAt?: string
   isPremium?: boolean
   isAI?: boolean
+  isPoupaAi?: boolean
+  isAutomacao?: boolean
 }
 
 export type Tutorial = {
@@ -38,7 +40,8 @@ export const shortcuts: Shortcut[] = [
     icloudUrl: "https://www.icloud.com/shortcuts/def910d037934f2ab15be19a448ef1dc",
     minIOS: "16.0",
     updatedAt: "2025-08-31",
-    isAI: true
+    isAI: true,
+    isPoupaAi: true
   },
   {
     id: "adicionar-categoria",
@@ -50,7 +53,9 @@ export const shortcuts: Shortcut[] = [
     icloudUrl: "https://www.icloud.com/shortcuts/9c1508a048e14266b454c8830c952926",
     minIOS: "16.0",
     updatedAt: "2025-08-31",
-    isPremium: true
+    isPremium: true,
+    isAI: true,
+    isPoupaAi: true
   },
   {
     id: "adicionar-cartao",
@@ -63,7 +68,8 @@ export const shortcuts: Shortcut[] = [
     minIOS: "16.0",
     updatedAt: "2025-08-31",
     isPremium: false,
-    isAI: false
+    isAI: true,
+    isPoupaAi: true
   },
   {
     id: "adicionar-transacao",
@@ -76,7 +82,8 @@ export const shortcuts: Shortcut[] = [
     minIOS: "16.0",
     updatedAt: "2025-08-31",
     isPremium: false,
-    isAI: false
+    isAI: true,
+    isPoupaAi: true
   },
   {
     id: "adicionar-despesa-cartao-automatico",
@@ -89,7 +96,9 @@ export const shortcuts: Shortcut[] = [
     minIOS: "16.0",
     updatedAt: "2025-08-31",
     isPremium: false,
-    isAI: false
+    isAI: true,
+    isPoupaAi: true,
+    isAutomacao: true
   },
   {
     id: "chama-no-zap",

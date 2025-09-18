@@ -225,3 +225,48 @@ All colors MUST be HSL.
     background-color: #0D0D0D !important;
   }
 }
+
+/* ===== DESIGN FIXO DOS ATALHOS - NÃO ALTERAR ===== */
+/* 
+ * IMPORTANTE: Estas classes definem o design FINAL dos cards de atalho
+ * baseado na imagem de referência fornecida pelo usuário.
+ * 
+ * ⚠️  NÃO MODIFICAR essas classes sem consultar o usuário primeiro!
+ * ⚠️  O design deve permanecer EXATAMENTE como mostrado na imagem
+ * ⚠️  TODOS OS ATALHOS DEVEM TER O GRADIENTE VERDE IGUAL AO "CHAMA NO ZAP"
+ * 
+ * Características FIXAS e IMUTÁVEIS:
+ * - Gradiente verde FIXO (#10b981 → #059669) para TODOS os atalhos
+ * - Altura fixa de 128px (h-32)
+ * - Ícone circular com fundo branco/transparente
+ * - Texto branco, centralizado, máximo 2 linhas
+ * - Efeito hover com escala e sombra
+ * - CONSISTÊNCIA: Card e Modal usam o MESMO gradiente verde
+ */
+@layer components {
+  .shortcut-card {
+    @apply relative rounded-xl p-4 cursor-pointer transition-all duration-300;
+    @apply hover:scale-105 hover:shadow-card-hover h-36 min-h-36;
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+  }
+
+  .shortcut-card-content {
+    @apply flex flex-col items-center justify-center text-center h-full space-y-3;
+  }
+
+  .shortcut-card-icon {
+    @apply w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm flex-shrink-0;
+  }
+
+  .shortcut-card-icon-emoji {
+    @apply text-2xl;
+  }
+
+  .shortcut-card-title {
+    @apply text-white font-medium text-sm leading-tight flex-1 flex items-center justify-center text-center overflow-hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    text-overflow: ellipsis !important;
+  }
+}

@@ -3,11 +3,14 @@ import App from './App.tsx'
 import './index.css'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { SearchProvider } from './contexts/SearchContext'
+import { ShortcutModalProvider } from './contexts/ShortcutModalContext'
 
 createRoot(document.getElementById("root")!).render(
   <ThemeProvider>
     <SearchProvider>
-      <App />
+      <ShortcutModalProvider>
+        <App />
+      </ShortcutModalProvider>
     </SearchProvider>
   </ThemeProvider>
 );

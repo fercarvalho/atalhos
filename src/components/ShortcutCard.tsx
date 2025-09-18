@@ -1,30 +1,68 @@
+import { useShortcutModal } from '../contexts/ShortcutModalContext';
+import { Shortcut } from '../data/shortcuts';
+import { Badge } from './ui/badge';
+
 interface ShortcutCardProps {
-  title: string;
-  icon: string;
-  gradient: string;
-  href?: string;
+  shortcut: Shortcut;
 }
 
-const ShortcutCard = ({ title, icon, gradient, href }: ShortcutCardProps) => {
-  const Wrapper = href ? "a" : "div"
+/**
+ * ShortcutCard - Componente de card de atalho
+ * 
+ * ⚠️  IMPORTANTE: O design visual está definido em classes CSS fixas (index.css)
+ * ⚠️  NÃO alterar as classes: shortcut-card, shortcut-card-content, etc.
+ * ⚠️  O design deve permanecer idêntico à imagem de referência fornecida
+ * 
+ * Classes utilizadas:
+ * - shortcut-card: Container principal com gradiente verde fixo
+ * - shortcut-card-content: Layout interno centralizado
+ * - shortcut-card-icon: Círculo do ícone com fundo transparente
+ * - shortcut-card-icon-emoji: Emoji do atalho
+ * - shortcut-card-title: Título com máximo 2 linhas
+ */
+const ShortcutCard = ({ shortcut }: ShortcutCardProps) => {
+  const { openModal } = useShortcutModal();
+
+  const handleClick = () => {
+    openModal(shortcut);
+  };
+
   return (
-    <div className={`
-      relative group rounded-xl p-4 cursor-pointer transition-all duration-300
-      hover:scale-105 hover:shadow-card-hover ${gradient} h-32 min-h-32
-    `}>
-      <div className="flex flex-col items-center justify-center text-center h-full space-y-3">
-        <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm flex-shrink-0">
-          <span className="text-2xl">{icon}</span>
+    <div onClick={handleClick} className="shortcut-card group">
+      {/* Badge AI no canto superior direito */}
+      {shortcut.isAI && (
+        <div className="absolute top-2 right-2 z-10">
+          <Badge className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white border-0 text-xs font-bold shadow-lg">
+            AI
+          </Badge>
+        </div>
+      )}
+      
+      {/* Badge Poupa.ai no canto superior esquerdo */}
+      {shortcut.isPoupaAi && (
+        <div className="absolute top-2 left-2 z-10">
+          <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0 text-xs font-bold shadow-lg">
+            Poupa.ai
+          </Badge>
+        </div>
+      )}
+      
+      {/* Badge Automação no canto inferior esquerdo */}
+      {shortcut.isAutomacao && (
+        <div className="absolute bottom-2 left-2 z-10">
+          <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white border-0 text-xs font-bold shadow-lg">
+            Automação
+          </Badge>
+        </div>
+      )}
+      
+      <div className="shortcut-card-content">
+        <div className="shortcut-card-icon">
+          <span className="shortcut-card-icon-emoji">{shortcut.icon || '⚡'}</span>
         </div>
         
-        <h4 className="text-white font-medium text-sm leading-tight flex-1 flex items-center overflow-hidden" 
-            style={{
-              display: '-webkit-box',
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: 'vertical',
-              textOverflow: 'ellipsis'
-            }}>
-          {title}
+        <h4 className="shortcut-card-title">
+          {shortcut.title}
         </h4>
       </div>
     </div>

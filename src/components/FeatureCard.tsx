@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 interface FeatureCardProps {
-  title: string;
+  title: string | ReactNode;
   background: string;
   icon?: ReactNode;
   image?: string;
@@ -17,7 +17,7 @@ const FeatureCard = ({ title, background, icon, image }: FeatureCardProps) => {
       {image && (
         <img 
           src={image} 
-          alt={title}
+          alt={typeof title === 'string' ? title : 'Feature card'}
           className="absolute inset-0 w-full h-full object-cover"
         />
       )}
