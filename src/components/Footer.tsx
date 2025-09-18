@@ -24,7 +24,7 @@ const Footer = () => {
                 Sobre Mim
               </a>
               <a 
-                href="/termos" 
+                href="https://fercarvalho.com/politicadeprivacidade" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
               >
                 Termos de Uso
