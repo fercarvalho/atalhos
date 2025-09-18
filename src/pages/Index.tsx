@@ -3,6 +3,7 @@ import Sidebar from "@/components/Sidebar";
 import FeatureCard from "@/components/FeatureCard";
 import ShortcutCard from "@/components/ShortcutCard";
 import TutorialCard from "@/components/TutorialCard";
+import Footer from "@/components/Footer";
 import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank, Youtube, Bot } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 import { useSearch } from "@/hooks/useSearch";
@@ -362,6 +363,7 @@ function Index() {
           )}
         </main>
       </div>
+      <Footer />
     </div>
   );
 }
