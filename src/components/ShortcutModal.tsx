@@ -108,9 +108,13 @@ const ShortcutModal: React.FC<ShortcutModalProps> = ({
             <h3 className="font-medium text-gray-900 dark:text-gray-100 mb-3">
               Sobre este Atalho
             </h3>
-            <div className="flex items-start gap-3">
-              <div className="w-6 h-6 bg-gray-300 dark:bg-gray-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-xs">🔊</span>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 flex items-center justify-center flex-shrink-0">
+                <img 
+                  src="/appleintelligencelogo.png" 
+                  alt="Apple Intelligence" 
+                  className="w-10 h-10 object-contain"
+                />
               </div>
               <p className="text-gray-600 dark:text-gray-400 text-sm">
                 Diga "E aí Siri, {shortcut.title}" para executar
@@ -138,9 +142,7 @@ const ShortcutModal: React.FC<ShortcutModalProps> = ({
                 {shortcut.category && (
                   <span>Categoria: {shortcut.category}</span>
                 )}
-                {shortcut.minIOS && (
-                  <span>iOS {shortcut.minIOS}+</span>
-                )}
+                <span>Versão 1.0</span>
               </div>
             </div>
           )}

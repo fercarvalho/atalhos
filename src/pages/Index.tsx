@@ -255,6 +255,26 @@ function Index() {
                         </a>
                       );
                     }
+                    // Card "Atalhos para IAs no WhatsApp" - scroll para Atalhos de IA
+                    if (shortcut.title === "Atalhos para IAs no WhatsApp") {
+                      return (
+                        <a
+                          key={index}
+                          href="#atalhos-ia"
+                          onClick={e => {
+                            e.preventDefault();
+                            const el = document.querySelector("#atalhos-ia");
+                            if (el) el.scrollIntoView({ behavior: "smooth" });
+                          } }
+                          style={{ textDecoration: "none" }}
+                        >
+                          <FeatureCard
+                            title={shortcut.title}
+                            background={shortcut.background}
+                            icon={shortcut.icon} />
+                        </a>
+                      );
+                    }
                     // Card "Atalhos para WhatsApp" - scroll para Outros Atalhos para WhatsApp
                     if (shortcut.title === "Atalhos para WhatsApp") {
                       return (
@@ -300,6 +320,32 @@ function Index() {
                 </div>
               </section>
 
+              {/* Atalhos de IA Section */}
+              <section id="atalhos-ia" className="mb-8">
+                <h2 className="text-2xl font-bold text-foreground mb-6">Atalhos de IA</h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                  {shortcuts.filter(shortcut => shortcut.isAI).map((shortcut) => (
+                    <ShortcutCard
+                      key={shortcut.id}
+                      shortcut={shortcut}
+                    />
+                  ))}
+                </div>
+              </section>
+
+              {/* Automações Section */}
+              <section id="automacoes" className="mb-8">
+                <h2 className="text-2xl font-bold text-foreground mb-6">Automações</h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                  {shortcuts.filter(shortcut => shortcut.isAutomacao).map((shortcut) => (
+                    <ShortcutCard
+                      key={shortcut.id}
+                      shortcut={shortcut}
+                    />
+                  ))}
+                </div>
+              </section>
+
               {/* Outros Atalhos para WhatsApp Section */}
               <section id="outros-atalhos-whatsapp" className="mb-8">
                 <h2 className="text-2xl font-bold text-foreground mb-6">Outros Atalhos para WhatsApp</h2>
@@ -326,6 +372,19 @@ function Index() {
                       />
                     ));
                   })()}
+                </div>
+              </section>
+
+              {/* Financeiro Section */}
+              <section id="financeiro" className="mb-8">
+                <h2 className="text-2xl font-bold text-foreground mb-6">Financeiro</h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                  {shortcuts.filter(shortcut => shortcut.category === "Financeiro").map((shortcut) => (
+                    <ShortcutCard
+                      key={shortcut.id}
+                      shortcut={shortcut}
+                    />
+                  ))}
                 </div>
               </section>
 
