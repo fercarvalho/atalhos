@@ -18,25 +18,33 @@ const Footer = () => {
           <div className="space-y-4">
             <nav className="flex flex-col space-y-2">
               <a 
-                href="https://fercarvalho.com/" 
+                href="https://fercarvalho.com/"
+                target="_blank"
+                rel="noopener noreferrer" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
               >
                 Sobre Mim
               </a>
               <a 
-                href="https://fercarvalho.com/termosdeuso" 
+                href="https://fercarvalho.com/termosdeuso"
+                target="_blank"
+                rel="noopener noreferrer" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
               >
                 Termos de Uso
               </a>
               <a 
-                href="https://fercarvalho.com/politicadeprivacidade" 
+                href="https://fercarvalho.com/politicadeprivacidade"
+                target="_blank"
+                rel="noopener noreferrer" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
               >
                 Política de Privacidade
               </a>
               {/*<a 
-                href="https://fercarvalho.com/politicadecookies" 
+                href="https://fercarvalho.com/politicadecookies"
+                target="_blank"
+                rel="noopener noreferrer" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
               >*/}
                 <span className="text-muted-foreground text-sm">
@@ -44,7 +52,9 @@ const Footer = () => {
                 </span>
               {/*</a>*/}
               {/*<a 
-                href="https://fercarvalho.com/consideracoesimportantes" 
+                href="https://fercarvalho.com/consideracoesimportantes"
+                target="_blank"
+                rel="noopener noreferrer" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
               >*/}
                 <span className="text-muted-foreground text-sm">
@@ -52,7 +62,9 @@ const Footer = () => {
                 </span>
               {/*</a>*/}
               {/*<a 
-                href="/midia-kit" 
+                href="/midia-kit"
+                target="_blank"
+                rel="noopener noreferrer"  
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
               >*/}
                 <span className="text-muted-foreground text-sm">
@@ -60,7 +72,9 @@ const Footer = () => {
                 </span>
               {/*</a>*/}
               <a 
-                href="https://wa.me/5511916111900?text=Fala%20Fer!%20Queria%20trocar%20uma%20ideia%20contigo%2C%20sobre%20automa%C3%A7%C3%B5es%20e%20IA" 
+                href="https://wa.me/5511916111900?text=Fala%20Fer!%20Queria%20trocar%20uma%20ideia%20contigo%2C%20sobre%20automa%C3%A7%C3%B5es%20e%20IA"
+                target="_blank"
+                rel="noopener noreferrer" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
               >
                 Contato
