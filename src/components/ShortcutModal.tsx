@@ -48,6 +48,28 @@ const ShortcutModal: React.FC<ShortcutModalProps> = ({
     return "1.0";
   };
 
+  // Função para compartilhar no WhatsApp
+  const handleShare = () => {
+    const shortcutUrl = `https://atalhos.fercarvalho.com/atalho/${shortcut.id}`;
+    
+    // Monta a mensagem conforme especificado
+    let message = `Olha que legal que eu encontrei no site do Fer Carvalho sobre IA...\n\n`;
+    message += `Ele tem um atalho chamado\n\n`;
+    message += `*${shortcut.title}*\n\n`;
+    message += `que\n\n`;
+    message += `${shortcut.tagline || 'facilita suas tarefas no iOS'}\n\n`;
+    message += `Baixe aqui: ${shortcutUrl}`;
+    
+    // Codifica a mensagem para URL
+    const encodedMessage = encodeURIComponent(message);
+    
+    // Cria o link do WhatsApp
+    const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
+    
+    // Abre o WhatsApp
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <div 
       className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
@@ -155,7 +177,10 @@ const ShortcutModal: React.FC<ShortcutModalProps> = ({
 
           {/* Action buttons */}
           <div className="space-y-3">
-            <button className="w-full bg-white/10 hover:bg-white/20 text-white font-medium py-3 px-4 rounded-xl transition-colors flex items-center justify-center gap-3">
+            <button 
+              onClick={handleShare}
+              className="w-full bg-white/10 hover:bg-white/20 text-white font-medium py-3 px-4 rounded-xl transition-colors flex items-center justify-center gap-3"
+            >
               <Share className="w-5 h-5" />
               Compartilhar
             </button>
