@@ -13,6 +13,7 @@ import {
   Bot,
   Settings,
   DollarSign,
+  PlayCircle,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -22,6 +23,7 @@ const categories = [
   { icon: Settings, label: "Automações", count: 1, active: false },
   { icon: MessageCircle, label: "Atalhos para WhatsApp", count: 1, active: false },
   { icon: DollarSign, label: "Financeiro", count: 5, active: false },
+  { icon: PlayCircle, label: "Tutoriais", count: 1, active: false },
 ];
 
 const Sidebar = () => {
@@ -72,6 +74,7 @@ const Sidebar = () => {
                 if (category.label === "Automações") href = "#automacoes";
                 if (category.label === "Atalhos para WhatsApp") href = "#outros-atalhos-whatsapp";
                 if (category.label === "Financeiro") href = "#financeiro";
+                if (category.label === "Tutoriais") href = "#tutoriais";
                 return (
                   <a
                     key={category.label}

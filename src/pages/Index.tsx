@@ -397,7 +397,7 @@ function Index() {
               </section>
 
               {/* Tutoriais Section */}
-              <section>
+              <section id="tutoriais">
                 <h2 className="text-2xl font-bold text-foreground mb-6">Tutoriais</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {tutorials.map((tutorial) => (
