@@ -26,6 +26,28 @@ const ShortcutModal: React.FC<ShortcutModalProps> = ({
     }
   };
 
+  // Função para determinar a versão baseada nas propriedades do shortcut
+  const getVersion = () => {
+    // Exceção específica: "Adicionar Despesa de Cartão (Automático)" = versão 2.0
+    if (shortcut.title === "Adicionar Despesa de Cartão (Automático)") {
+      return "2.0";
+    }
+    // Cards com badge AI = versão 3.0 (prioridade máxima)
+    if (shortcut.isAI) {
+      return "3.0";
+    }
+    // Chama no Zap = versão 2.0
+    if (shortcut.title === "Chama no Zap") {
+      return "2.0";
+    }
+    // Cards com badge Automação (sem AI) = versão 2.0
+    if (shortcut.isAutomacao) {
+      return "2.0";
+    }
+    // Padrão
+    return "1.0";
+  };
+
   return (
     <div 
       className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
@@ -151,7 +173,7 @@ const ShortcutModal: React.FC<ShortcutModalProps> = ({
                 {shortcut.category && (
                   <span>Categoria: {shortcut.category}</span>
                 )}
-                <span>Versão 1.0</span>
+                <span>Versão {getVersion()}</span>
               </div>
             </div>
           )}
