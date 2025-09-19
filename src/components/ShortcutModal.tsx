@@ -80,7 +80,16 @@ const ShortcutModal: React.FC<ShortcutModalProps> = ({
         </div>
 
         {/* Header with gradient and icon */}
-        <div className="pt-28 sm:pt-32 pb-8 px-4 sm:px-8 text-white relative">
+        <div className={`pb-8 px-4 sm:px-8 text-white relative ${
+          // Calcular padding-top baseado na quantidade de badges
+          (() => {
+            const badgeCount = [shortcut.isAI, shortcut.isPoupaAi, shortcut.isAutomacao].filter(Boolean).length;
+            if (badgeCount === 0) return "pt-16 sm:pt-20"; // Sem badges - espaçamento menor
+            if (badgeCount === 1) return "pt-20 sm:pt-24"; // 1 badge
+            if (badgeCount === 2) return "pt-24 sm:pt-28"; // 2 badges
+            return "pt-28 sm:pt-32"; // 3 badges - espaçamento maior
+          })()
+        }`}>
           <div className="flex flex-col items-center text-center">
             <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm mb-4 shadow-lg">
               <span className="text-4xl">{shortcut.icon || '⚡'}</span>
