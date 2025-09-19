@@ -29,12 +29,28 @@ const Footer = () => {
               >
                 Termos de Uso
               </a>
-                <a 
+              <a 
                 href="https://fercarvalho.com/politicadeprivacidade" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
               >
                 Política de Privacidade
               </a>
+              {/*<a 
+                href="https://fercarvalho.com/politicadecookies" 
+                className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+              >*/}
+                <span className="text-muted-foreground text-sm">
+                Política de Cookies
+                </span>
+              {/*</a>*/}
+              {/*<a 
+                href="https://fercarvalho.com/consideracoesimportantes" 
+                className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+              >*/}
+                <span className="text-muted-foreground text-sm">
+                Considerações Importantes
+                </span>
+              {/*</a>*/}
               {/*<a 
                 href="/midia-kit" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
