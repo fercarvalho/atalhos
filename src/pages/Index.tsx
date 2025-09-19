@@ -5,10 +5,12 @@ import ShortcutCard from "@/components/ShortcutCard";
 import TutorialCard from "@/components/TutorialCard";
 import Footer from "@/components/Footer";
 import ShortcutModal from "@/components/ShortcutModal";
+import VideoModal from "@/components/VideoModal";
 import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank, Youtube, Bot } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 import { useSearch } from "@/hooks/useSearch";
 import { useShortcutModal } from "@/contexts/ShortcutModalContext";
+import { useVideoModal } from "@/hooks/useVideoModal";
 import { shortcuts, tutorials } from "@/data/shortcuts";
 
 function Index() {
@@ -20,6 +22,12 @@ function Index() {
     incrementClickCount, 
     getClickCount 
   } = useShortcutModal();
+  const {
+    isVideoModalOpen,
+    selectedVideo,
+    openVideoModal,
+    closeVideoModal
+  } = useVideoModal();
 
   const handleInstall = () => {
     if (selectedShortcut) {
@@ -393,17 +401,15 @@ function Index() {
                 <h2 className="text-2xl font-bold text-foreground mb-6">Tutoriais</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {tutorials.map((tutorial) => (
-                    <a
+                    <div
                       key={tutorial.id}
-                      href={tutorial.videoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ textDecoration: "none" }}
+                      onClick={() => openVideoModal(tutorial)}
+                      className="cursor-pointer"
                     >
                       <TutorialCard
                         title={tutorial.title}
                         image={tutorial.image || "tutorial01.jpg"} />
-                    </a>
+                    </div>
                   ))}
                 </div>
               </section>
@@ -421,6 +427,16 @@ function Index() {
           onClose={closeModal}
           clickCount={getClickCount(selectedShortcut.id)}
           onInstall={handleInstall}
+        />
+      )}
+
+      {/* Modal de Vídeo */}
+      {selectedVideo && (
+        <VideoModal
+          isOpen={isVideoModalOpen}
+          onClose={closeVideoModal}
+          videoUrl={selectedVideo.videoUrl}
+          title={selectedVideo.title}
         />
       )}
     </div>

@@ -113,8 +113,8 @@ const ShortcutModal: React.FC<ShortcutModalProps> = ({
           </button>
 
           {/* About section */}
-          <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4">
-            <h3 className="font-medium text-gray-900 dark:text-gray-100 mb-3">
+          <div className="bg-white/10 rounded-xl p-4">
+            <h3 className="font-medium text-white mb-3">
               Sobre este Atalho
             </h3>
             <div className="flex items-center gap-3">
@@ -125,7 +125,7 @@ const ShortcutModal: React.FC<ShortcutModalProps> = ({
                   className="w-10 h-10 object-contain"
                 />
               </div>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">
+              <p className="text-white/90 text-sm">
                 Diga "E aí Siri, {shortcut.title}" para executar
               </p>
             </div>
@@ -133,12 +133,12 @@ const ShortcutModal: React.FC<ShortcutModalProps> = ({
 
           {/* Action buttons */}
           <div className="space-y-3">
-            <button className="w-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 font-medium py-3 px-4 rounded-xl transition-colors flex items-center justify-center gap-3">
+            <button className="w-full bg-white/10 hover:bg-white/20 text-white font-medium py-3 px-4 rounded-xl transition-colors flex items-center justify-center gap-3">
               <Share className="w-5 h-5" />
               Compartilhar
             </button>
             
-            <div className="w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-medium py-3 px-4 rounded-xl flex items-center justify-center gap-3">
+            <div className="w-full bg-white/10 text-white font-medium py-3 px-4 rounded-xl flex items-center justify-center gap-3">
               <Download className="w-5 h-5" />
               <span>{clickCount.toLocaleString()} Downloads</span>
             </div>
@@ -146,8 +146,8 @@ const ShortcutModal: React.FC<ShortcutModalProps> = ({
 
           {/* Additional info */}
           {(shortcut.minIOS || shortcut.category) && (
-            <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-              <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+            <div className="pt-4 border-t border-white/20">
+              <div className="flex justify-between text-sm text-white/80">
                 {shortcut.category && (
                   <span>Categoria: {shortcut.category}</span>
                 )}
