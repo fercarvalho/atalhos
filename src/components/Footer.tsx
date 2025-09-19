@@ -24,10 +24,16 @@ const Footer = () => {
                 Sobre Mim
               </a>
               <a 
-                href="https://fercarvalho.com/politicadeprivacidade" 
+                href="https://fercarvalho.com/termosdeuso" 
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm"
               >
                 Termos de Uso
+              </a>
+                <a 
+                href="https://fercarvalho.com/politicadeprivacidade" 
+                className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+              >
+                Política de Privacidade
               </a>
               {/*<a 
                 href="/midia-kit" 
