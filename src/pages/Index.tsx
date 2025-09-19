@@ -6,11 +6,13 @@ import TutorialCard from "@/components/TutorialCard";
 import Footer from "@/components/Footer";
 import ShortcutModal from "@/components/ShortcutModal";
 import VideoModal from "@/components/VideoModal";
-import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank, Youtube, Bot } from "lucide-react";
+import WebsiteModal from "@/components/WebsiteModal";
+import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank, Youtube, Bot, Settings, PlayCircle } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 import { useSearch } from "@/hooks/useSearch";
 import { useShortcutModal } from "@/contexts/ShortcutModalContext";
 import { useVideoModal } from "@/hooks/useVideoModal";
+import { useWebsiteModal } from "@/hooks/useWebsiteModal";
 import { shortcuts, tutorials } from "@/data/shortcuts";
 
 function Index() {
@@ -28,6 +30,12 @@ function Index() {
     openVideoModal,
     closeVideoModal
   } = useVideoModal();
+  const {
+    isWebsiteModalOpen,
+    selectedWebsite,
+    openWebsiteModal,
+    closeWebsiteModal
+  } = useWebsiteModal();
 
   const handleInstall = () => {
     if (selectedShortcut) {
@@ -64,14 +72,29 @@ function Index() {
       icon: <PiggyBank className="w-8 h-8 text-white" />
     },
     {
-      title: "Atalhos para IAs no WhatsApp",
-      background: "bg-gradient-whatsapp",
+      title: "ESPECIAL Poupa.ai",
+      background: "bg-gray-50",
+      icon: <PiggyBank className="w-8 h-8 text-white" />
+    },
+    {
+      title: "Atalhos de IA",
+      background: "bg-gradient-to-br from-cyan-500 to-blue-500",
       icon: <Bot className="w-8 h-8 text-white" />
+    },
+    {
+      title: "Automações",
+      background: "bg-gradient-to-br from-orange-500 to-red-500",
+      icon: <Settings className="w-8 h-8 text-white" />
     },
     {
       title: "Atalhos para WhatsApp",
       background: "bg-gradient-whatsapp",
       icon: <MessageCircle className="w-8 h-8 text-white" />
+    },
+    {
+      title: "Tutoriais",
+      background: "bg-gradient-to-br from-purple-500 to-indigo-600",
+      icon: <PlayCircle className="w-8 h-8 text-white" />
     }
   ];
 
@@ -174,22 +197,20 @@ function Index() {
                 <h2 className="text-2xl font-bold text-foreground mb-6">Destaques</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                   {featuredShortcuts.map((shortcut, index) => {
-                    // Card do Poupa.ai (com texto promocional) aponta para link externo
+                    // Card do Poupa.ai (com texto promocional) abre modal
                     if (typeof shortcut.title === "object" &&
                       shortcut.title?.props?.children?.[0] === "Automatize suas finanças com o Poupa.ai") {
                       return (
-                        <a
+                        <div
                           key={index}
-                          href="https://poupa.ai/?coupon=FECARVALHO"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{ textDecoration: "none" }}
+                          onClick={() => openWebsiteModal("https://poupa.ai/?coupon=FECARVALHO", "Poupa.ai - Automatize suas finanças")}
+                          className="cursor-pointer"
                         >
                           <FeatureCard
                             title={shortcut.title}
                             background={shortcut.background}
                             icon={shortcut.icon} />
-                        </a>
+                        </div>
                       );
                     }
                     // Card TikTok
@@ -243,8 +264,8 @@ function Index() {
                         </a>
                       );
                     }
-                    // Card "Atalhos para IAs no WhatsApp" - scroll para Especial Poupa.ai
-                    if (shortcut.title === "Atalhos para IAs no WhatsApp") {
+                    // Card "ESPECIAL Poupa.ai" - scroll para ESPECIAL Poupa.ai
+                    if (shortcut.title === "ESPECIAL Poupa.ai") {
                       return (
                         <a
                           key={index}
@@ -263,8 +284,8 @@ function Index() {
                         </a>
                       );
                     }
-                    // Card "Atalhos para IAs no WhatsApp" - scroll para Atalhos de IA
-                    if (shortcut.title === "Atalhos para IAs no WhatsApp") {
+                    // Card "Atalhos de IA" - scroll para Atalhos de IA
+                    if (shortcut.title === "Atalhos de IA") {
                       return (
                         <a
                           key={index}
@@ -272,6 +293,26 @@ function Index() {
                           onClick={e => {
                             e.preventDefault();
                             const el = document.querySelector("#atalhos-ia");
+                            if (el) el.scrollIntoView({ behavior: "smooth" });
+                          } }
+                          style={{ textDecoration: "none" }}
+                        >
+                          <FeatureCard
+                            title={shortcut.title}
+                            background={shortcut.background}
+                            icon={shortcut.icon} />
+                        </a>
+                      );
+                    }
+                    // Card "Automações" - scroll para Automações
+                    if (shortcut.title === "Automações") {
+                      return (
+                        <a
+                          key={index}
+                          href="#automacoes"
+                          onClick={e => {
+                            e.preventDefault();
+                            const el = document.querySelector("#automacoes");
                             if (el) el.scrollIntoView({ behavior: "smooth" });
                           } }
                           style={{ textDecoration: "none" }}
@@ -292,6 +333,26 @@ function Index() {
                           onClick={e => {
                             e.preventDefault();
                             const el = document.querySelector("#outros-atalhos-whatsapp");
+                            if (el) el.scrollIntoView({ behavior: "smooth" });
+                          } }
+                          style={{ textDecoration: "none" }}
+                        >
+                          <FeatureCard
+                            title={shortcut.title}
+                            background={shortcut.background}
+                            icon={shortcut.icon} />
+                        </a>
+                      );
+                    }
+                    // Card "Tutoriais" - scroll para Tutoriais
+                    if (shortcut.title === "Tutoriais") {
+                      return (
+                        <a
+                          key={index}
+                          href="#tutoriais"
+                          onClick={e => {
+                            e.preventDefault();
+                            const el = document.querySelector("#tutoriais");
                             if (el) el.scrollIntoView({ behavior: "smooth" });
                           } }
                           style={{ textDecoration: "none" }}
@@ -437,6 +498,16 @@ function Index() {
           onClose={closeVideoModal}
           videoUrl={selectedVideo.videoUrl}
           title={selectedVideo.title}
+        />
+      )}
+
+      {/* Modal de Website */}
+      {selectedWebsite && (
+        <WebsiteModal
+          isOpen={isWebsiteModalOpen}
+          onClose={closeWebsiteModal}
+          websiteUrl={selectedWebsite.url}
+          title={selectedWebsite.title}
         />
       )}
     </div>
