@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
 import { Shortcut } from '../data/shortcuts';
 
 interface ShortcutModalContextType {
@@ -24,8 +23,6 @@ export const ShortcutModalProvider: React.FC<ShortcutModalProviderProps> = ({ ch
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [clickCounts, setClickCounts] = useState<Record<string, number>>({});
   const [initialCounts, setInitialCounts] = useState<Record<string, number>>({});
-  const navigate = useNavigate();
-  const location = useLocation();
 
   // Função para gerar número aleatório inicial
   const generateInitialCount = useCallback((shortcutId: string) => {
@@ -47,17 +44,19 @@ export const ShortcutModalProvider: React.FC<ShortcutModalProviderProps> = ({ ch
   const openModal = useCallback((shortcut: Shortcut) => {
     setSelectedShortcut(shortcut);
     setIsModalOpen(true);
+    // Atualiza o hash na URL
+    window.history.pushState(null, '', `#${shortcut.id}`);
   }, []);
 
   const closeModal = useCallback(() => {
     setIsModalOpen(false);
-    // Se estiver em uma página de atalho específico, volta para home
-    if (location.pathname.startsWith('/atalho/')) {
-      navigate('/');
+    // Remove o hash da URL quando fechar o modal
+    if (window.location.hash) {
+      window.history.pushState('', document.title, window.location.pathname + window.location.search);
     }
     // Delay clearing the shortcut to allow for exit animations
     setTimeout(() => setSelectedShortcut(null), 200);
-  }, [navigate, location]);
+  }, []);
 
   const incrementClickCount = useCallback((shortcutId: string) => {
     setClickCounts(prev => ({

@@ -50,7 +50,7 @@ const ShortcutModal: React.FC<ShortcutModalProps> = ({
 
   // Função para compartilhar no WhatsApp
   const handleShare = () => {
-    const shortcutUrl = `https://atalhos.fercarvalho.com/atalho/${shortcut.id}`;
+    const shortcutUrl = `https://atalhos.fercarvalho.com/#${shortcut.id}`;
     
     // Monta a mensagem conforme especificado
     let message = `Olha que legal que eu encontrei no site do Fer Carvalho sobre IA...\n\n`;

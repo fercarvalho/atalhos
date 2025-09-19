@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import FeatureCard from "@/components/FeatureCard";
@@ -21,6 +22,7 @@ function Index() {
     selectedShortcut, 
     isModalOpen, 
     closeModal, 
+    openModal,
     incrementClickCount, 
     getClickCount 
   } = useShortcutModal();
@@ -36,6 +38,29 @@ function Index() {
     openWebsiteModal,
     closeWebsiteModal
   } = useWebsiteModal();
+
+  // Detecta hash na URL e abre o modal correspondente
+  useEffect(() => {
+    const checkHashAndOpenModal = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        const shortcut = shortcuts.find(s => s.id === hash);
+        if (shortcut) {
+          openModal(shortcut);
+        }
+      }
+    };
+
+    // Verifica na montagem do componente
+    checkHashAndOpenModal();
+
+    // Escuta mudanças no hash
+    window.addEventListener('hashchange', checkHashAndOpenModal);
+    
+    return () => {
+      window.removeEventListener('hashchange', checkHashAndOpenModal);
+    };
+  }, [openModal]);
 
   const handleInstall = () => {
     if (selectedShortcut) {
