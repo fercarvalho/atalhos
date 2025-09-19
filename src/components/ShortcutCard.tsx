@@ -1,44 +1,68 @@
-import { Badge } from "@/components/ui/badge";
+import { useShortcutModal } from '../contexts/ShortcutModalContext';
+import { Shortcut } from '../data/shortcuts';
+import { Badge } from './ui/badge';
 
 interface ShortcutCardProps {
-  title: string;
-  icon: string;
-  isPremium?: boolean;
-  isAI?: boolean;
-  gradient: string;
-  href?: string;
+  shortcut: Shortcut;
 }
 
-const ShortcutCard = ({ title, icon, isPremium, isAI, gradient, href }: ShortcutCardProps) => {
-  const Wrapper = href ? "a" : "div"
+/**
+ * ShortcutCard - Componente de card de atalho
+ * 
+ * ⚠️  IMPORTANTE: O design visual está definido em classes CSS fixas (index.css)
+ * ⚠️  NÃO alterar as classes: shortcut-card, shortcut-card-content, etc.
+ * ⚠️  O design deve permanecer idêntico à imagem de referência fornecida
+ * 
+ * Classes utilizadas:
+ * - shortcut-card: Container principal com gradiente verde fixo
+ * - shortcut-card-content: Layout interno centralizado
+ * - shortcut-card-icon: Círculo do ícone com fundo transparente
+ * - shortcut-card-icon-emoji: Emoji do atalho
+ * - shortcut-card-title: Título com máximo 2 linhas
+ */
+const ShortcutCard = ({ shortcut }: ShortcutCardProps) => {
+  const { openModal } = useShortcutModal();
+
+  const handleClick = () => {
+    openModal(shortcut);
+  };
+
   return (
-    <div className={`
-      relative group rounded-xl p-4 cursor-pointer transition-all duration-300
-      hover:scale-105 hover:shadow-card-hover ${gradient}
-    `}>
-      <div className="flex flex-col items-center text-center space-y-3">
-        <div className="relative">
-          <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
-            <span className="text-2xl">{icon}</span>
-          </div>
-          
-          {/* Badges */}
-          <div className="absolute -top-2 -right-2 flex flex-col space-y-1">
-            {isPremium && (
-              <Badge className="bg-premium-gold text-white text-xs px-1.5 py-0.5 shadow-premium">
-                PREMIUM
-              </Badge>
-            )}
-            {isAI && (
-              <Badge className="bg-ai-cyan text-white text-xs px-1.5 py-0.5">
-                IA
-              </Badge>
-            )}
-          </div>
+    <div onClick={handleClick} className="shortcut-card group">
+      {/* Badge AI no canto superior direito */}
+      {shortcut.isAI && (
+        <div className="absolute top-2 right-2 z-10">
+          <Badge className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white border-0 text-xs font-bold shadow-lg">
+            AI
+          </Badge>
+        </div>
+      )}
+      
+      {/* Badge Poupa.ai no canto superior esquerdo */}
+      {shortcut.isPoupaAi && (
+        <div className="absolute top-2 left-2 z-10">
+          <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0 text-xs font-bold shadow-lg">
+            Poupa.ai
+          </Badge>
+        </div>
+      )}
+      
+      {/* Badge Automação no canto inferior esquerdo */}
+      {shortcut.isAutomacao && (
+        <div className="absolute bottom-2 left-2 z-10">
+          <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white border-0 text-xs font-bold shadow-lg">
+            Automação
+          </Badge>
+        </div>
+      )}
+      
+      <div className="shortcut-card-content">
+        <div className="shortcut-card-icon">
+          <span className="shortcut-card-icon-emoji">{shortcut.icon || '⚡'}</span>
         </div>
         
-        <h4 className="text-white font-medium text-sm leading-tight">
-          {title}
+        <h4 className="shortcut-card-title">
+          {shortcut.title}
         </h4>
       </div>
     </div>

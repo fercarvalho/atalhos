@@ -3,11 +3,47 @@ import Sidebar from "@/components/Sidebar";
 import FeatureCard from "@/components/FeatureCard";
 import ShortcutCard from "@/components/ShortcutCard";
 import TutorialCard from "@/components/TutorialCard";
-import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank, Youtube, Bot } from "lucide-react";
+import Footer from "@/components/Footer";
+import ShortcutModal from "@/components/ShortcutModal";
+import VideoModal from "@/components/VideoModal";
+import WebsiteModal from "@/components/WebsiteModal";
+import { MessageCircle, Layers, Smartphone, Watch, Instagram, Mic2, PiggyBank, Youtube, Bot, Settings, PlayCircle } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
-
+import { useSearch } from "@/hooks/useSearch";
+import { useShortcutModal } from "@/contexts/ShortcutModalContext";
+import { useVideoModal } from "@/hooks/useVideoModal";
+import { useWebsiteModal } from "@/hooks/useWebsiteModal";
+import { shortcuts, tutorials } from "@/data/shortcuts";
 
 function Index() {
+  const { filteredData, filteredTutorials, isSearching, searchTerm, totalResults } = useSearch();
+  const { 
+    selectedShortcut, 
+    isModalOpen, 
+    closeModal, 
+    incrementClickCount, 
+    getClickCount 
+  } = useShortcutModal();
+  const {
+    isVideoModalOpen,
+    selectedVideo,
+    openVideoModal,
+    closeVideoModal
+  } = useVideoModal();
+  const {
+    isWebsiteModalOpen,
+    selectedWebsite,
+    openWebsiteModal,
+    closeWebsiteModal
+  } = useWebsiteModal();
+
+  const handleInstall = () => {
+    if (selectedShortcut) {
+      incrementClickCount(selectedShortcut.id);
+      window.open(selectedShortcut.icloudUrl, '_blank');
+    }
+  };
+
   const featuredShortcuts = [
     {
       title: "Assista as aulas mais completas sobre IA no Youtube",
@@ -36,49 +72,29 @@ function Index() {
       icon: <PiggyBank className="w-8 h-8 text-white" />
     },
     {
-      title: "Atalhos para IAs no WhatsApp",
-      background: "bg-gradient-whatsapp",
+      title: "ESPECIAL Poupa.ai",
+      background: "bg-gray-50",
+      icon: <PiggyBank className="w-8 h-8 text-white" />
+    },
+    {
+      title: "Atalhos de IA",
+      background: "bg-gradient-to-br from-cyan-500 to-blue-500",
       icon: <Bot className="w-8 h-8 text-white" />
+    },
+    {
+      title: "Automações",
+      background: "bg-gradient-to-br from-orange-500 to-red-500",
+      icon: <Settings className="w-8 h-8 text-white" />
     },
     {
       title: "Atalhos para WhatsApp",
       background: "bg-gradient-whatsapp",
       icon: <MessageCircle className="w-8 h-8 text-white" />
-    }
-  ];
-
-  const popularShortcuts = [
-    {
-      title: "Adicionar Banco",
-      icon: "🏦",
-      gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
     },
     {
-      title: "Adicionar Cartão",
-      icon: "💳",
-      gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
-    },
-    {
-      title: "Adicionar Categoria",
-      icon: "🏷️",
-      gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
-    },
-    {
-      title: "Adicionar Transação",
-      icon: "🧾",
-      gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
-    },
-    {
-      title: "Adicionar Transação do Cartão AUTOMÁTICO",
-      icon: "📩",
-      gradient: "bg-gradient-to-br from-green-500 to-emerald-600"
-    }
-  ];
-
-  const tutorials = [
-    {
-      title: "[ESPECIAL] [Poupa.ai] Registrando Despesas Recorrentes",
-      image: "tutorial01.jpg"
+      title: "Tutoriais",
+      background: "bg-gradient-to-br from-purple-500 to-indigo-600",
+      icon: <PlayCircle className="w-8 h-8 text-white" />
     }
   ];
 
@@ -115,7 +131,7 @@ function Index() {
                   return (
                     <a
                       key={index}
-                      href="https://poupa.ai/?coupon=FECARVALHO"
+                      href="https://poupa.ai/"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ textDecoration: "none" }}
@@ -230,60 +246,140 @@ function Index() {
             </div>
           </section>
 
-          {/* Mais populares Section */}
-          <section id="especial-poupa-ai" className="mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">ESPECIAL Poupa.ai</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {popularShortcuts.map((shortcut, index) => (
-                <ShortcutCard
-                  key={index}
-                  title={shortcut.title}
-                  icon={shortcut.icon}
-                  isPremium={shortcut.isPremium}
-                  isAI={shortcut.isAI}
-                  gradient={shortcut.gradient} />
-              ))}
-            </div>
-          </section>
+              {/* Mais populares Section */}
+              <section id="especial-poupa-ai" className="mb-8">
+                <h2 className="text-2xl font-bold text-foreground mb-6">ESPECIAL Poupa.ai</h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                  {shortcuts.slice(0, 5).map((shortcut) => (
+                    <ShortcutCard
+                      key={shortcut.id}
+                      shortcut={shortcut}
+                    />
+                  ))}
+                </div>
+              </section>
 
-          {/* Outros Atalhos para WhatsApp Section */}
-          <section id="outros-atalhos-whatsapp" className="mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Outros Atalhos para WhatsApp</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              <a
-                href="https://www.icloud.com/shortcuts/efcf18326dc84e33829b2c0cd6702831"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: "none" }}
-              >
-                <ShortcutCard
-                  title="Chama no Zap"
-                  icon="💬"
-                  gradient="bg-gradient-to-br from-green-500 to-emerald-600"
-                  description="Fale com números no WhatsApp sem precisar salvar o contato"
-                />
-              </a>
-            </div>
-          </section>
+              {/* Atalhos de IA Section */}
+              <section id="atalhos-ia" className="mb-8">
+                <h2 className="text-2xl font-bold text-foreground mb-6">Atalhos de IA</h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                  {shortcuts.filter(shortcut => shortcut.isAI).map((shortcut) => (
+                    <ShortcutCard
+                      key={shortcut.id}
+                      shortcut={shortcut}
+                    />
+                  ))}
+                </div>
+              </section>
 
-          {/* Lançamentos Section */}
-          <section>
-            <h2 className="text-2xl font-bold text-foreground mb-6">Tutoriais</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <a
-                href="https://www.youtube.com/watch?v=qmq_ICYZt20"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: "none" }}
-              >
-                <TutorialCard
-                  title={tutorials[0].title}
-                  image={tutorials[0].image} />
-              </a>
-            </div>
-          </section>
+              {/* Automações Section */}
+              <section id="automacoes" className="mb-8">
+                <h2 className="text-2xl font-bold text-foreground mb-6">Automações</h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                  {shortcuts.filter(shortcut => shortcut.isAutomacao).map((shortcut) => (
+                    <ShortcutCard
+                      key={shortcut.id}
+                      shortcut={shortcut}
+                    />
+                  ))}
+                </div>
+              </section>
+
+              {/* Outros Atalhos para WhatsApp Section */}
+              <section id="outros-atalhos-whatsapp" className="mb-8">
+                <h2 className="text-2xl font-bold text-foreground mb-6">Outros Atalhos para WhatsApp</h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                  {/* Buscar e mostrar atalhos da categoria WhatsApp */}
+                  {(() => {
+                    // Filtrar atalhos da categoria WhatsApp dos dados originais
+                    const whatsappShortcuts = shortcuts.filter(shortcut => 
+                      shortcut.category.toLowerCase().includes('whatsapp')
+                    );
+                    
+                    if (whatsappShortcuts.length === 0) {
+                      return (
+                        <div className="text-center text-muted-foreground p-4 col-span-full">
+                          <p>Nenhum atalho para WhatsApp encontrado</p>
+                        </div>
+                      );
+                    }
+                    
+                    return whatsappShortcuts.map((shortcut) => (
+                      <ShortcutCard
+                        key={shortcut.id}
+                        shortcut={shortcut}
+                      />
+                    ));
+                  })()}
+                </div>
+              </section>
+
+              {/* Financeiro Section */}
+              <section id="financeiro" className="mb-8">
+                <h2 className="text-2xl font-bold text-foreground mb-6">Financeiro</h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                  {shortcuts.filter(shortcut => shortcut.category === "Financeiro").map((shortcut) => (
+                    <ShortcutCard
+                      key={shortcut.id}
+                      shortcut={shortcut}
+                    />
+                  ))}
+                </div>
+              </section>
+
+              {/* Tutoriais Section */}
+              <section id="tutoriais">
+                <h2 className="text-2xl font-bold text-foreground mb-6">Tutoriais</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {tutorials.map((tutorial) => (
+                    <div
+                      key={tutorial.id}
+                      onClick={() => openVideoModal(tutorial)}
+                      className="cursor-pointer"
+                    >
+                      <TutorialCard
+                        title={tutorial.title}
+                        image={tutorial.image || "tutorial01.jpg"} />
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </>
+          )}
         </main>
       </div>
+      <Footer />
+
+      {/* Modal de Atalho */}
+      {selectedShortcut && (
+        <ShortcutModal
+          shortcut={selectedShortcut}
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          clickCount={getClickCount(selectedShortcut.id)}
+          onInstall={handleInstall}
+        />
+      )}
+
+      {/* Modal de Vídeo */}
+      {selectedVideo && (
+        <VideoModal
+          isOpen={isVideoModalOpen}
+          onClose={closeVideoModal}
+          videoUrl={selectedVideo.videoUrl}
+          title={selectedVideo.title}
+        />
+      )}
+
+      {/* Modal de Website */}
+      {selectedWebsite && (
+        <WebsiteModal
+          isOpen={isWebsiteModalOpen}
+          onClose={closeWebsiteModal}
+          websiteUrl={selectedWebsite.url}
+          title={selectedWebsite.title}
+        />
+      )}
     </div>
   );
 }

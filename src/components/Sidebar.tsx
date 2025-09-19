@@ -10,12 +10,20 @@ import {
   Zap,
   PiggyBank,
   Menu,
+  Bot,
+  Settings,
+  DollarSign,
+  PlayCircle,
 } from "lucide-react";
 import { useState } from "react";
 
 const categories = [
   { icon: PiggyBank, label: "Poupa.ai", count: 5, active: false },
+  { icon: Bot, label: "Atalhos de IA", count: 5, active: false },
+  { icon: Settings, label: "Automações", count: 1, active: false },
   { icon: MessageCircle, label: "Atalhos para WhatsApp", count: 1, active: false },
+  { icon: DollarSign, label: "Financeiro", count: 5, active: false },
+  { icon: PlayCircle, label: "Tutoriais", count: 1, active: false },
 ];
 
 const Sidebar = () => {
@@ -26,7 +34,7 @@ const Sidebar = () => {
       {/* Botão do menu para abrir */}
       {!open && (
         <button
-          className="fixed top-[1.5rem] md:top-[2.5rem] left-4 z-50 bg-card p-2 rounded-lg shadow"
+          className="fixed top-[1.5rem] md:top-[2.5rem] left-4 z-50 p-2 hover:bg-muted rounded-lg transition-colors bg-muted/50 backdrop-blur-sm shadow"
           onClick={() => setOpen(true)}
           aria-label="Abrir menu"
         >
@@ -38,7 +46,7 @@ const Sidebar = () => {
       {open && (
         <button
           onClick={() => setOpen(false)}
-          className="fixed top-[1.5rem] md:top-[2.5rem] left-4 z-50 bg-card p-2 rounded-lg shadow"
+          className="fixed top-[1.5rem] md:top-[2.5rem] left-4 z-50 p-2 hover:bg-muted rounded-lg transition-colors bg-muted/50 backdrop-blur-sm shadow"
           aria-label="Fechar menu"
         >
           <Menu className="w-6 h-6 text-foreground rotate-180" />
@@ -62,7 +70,11 @@ const Sidebar = () => {
                 const Icon = category.icon;
                 let href = "#";
                 if (category.label === "Poupa.ai") href = "#especial-poupa-ai";
+                if (category.label === "Atalhos de IA") href = "#atalhos-ia";
+                if (category.label === "Automações") href = "#automacoes";
                 if (category.label === "Atalhos para WhatsApp") href = "#outros-atalhos-whatsapp";
+                if (category.label === "Financeiro") href = "#financeiro";
+                if (category.label === "Tutoriais") href = "#tutoriais";
                 return (
                   <a
                     key={category.label}

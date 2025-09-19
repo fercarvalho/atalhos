@@ -8,10 +8,11 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 5%;
+    /* Default - Dark Theme (sistema padrão) - #0D0D0D */
+    --background: 0 0% 5.1%;
     --foreground: 0 0% 95%;
 
-    --card: 0 0% 8%;
+    --card: 0 0% 6.7%;
     --card-foreground: 0 0% 95%;
 
     --popover: 0 0% 8%;
@@ -38,7 +39,7 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    /* iOS Galeria de Atalhos Design System - Dark Theme */
+    /* iOS Galeria de Atalhos Design System */
     --ios-blue: 59 130 246;
     --whatsapp-green: 37 211 102;
     --instagram-purple: 147 51 234;
@@ -80,34 +81,117 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
+  /* Light Theme - baseado na preferência do sistema */
+  @media (prefers-color-scheme: light) {
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 240 10% 3.9%;
+
+      --card: 0 0% 100%;
+      --card-foreground: 240 10% 3.9%;
+
+      --popover: 0 0% 100%;
+      --popover-foreground: 240 10% 3.9%;
+
+      --primary: 59 130 246;
+      --primary-foreground: 0 0% 98%;
+
+      --secondary: 240 4.8% 95.9%;
+      --secondary-foreground: 240 5.9% 10%;
+
+      --muted: 240 4.8% 95.9%;
+      --muted-foreground: 240 3.8% 46.1%;
+
+      --accent: 240 4.8% 95.9%;
+      --accent-foreground: 240 5.9% 10%;
+
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 0 0% 98%;
+
+      --border: 240 5.9% 90%;
+      --input: 240 5.9% 90%;
+      --ring: 59 130 246;
+
+      --sidebar-background: 0 0% 98%;
+      --sidebar-foreground: 240 5.3% 26.1%;
+      --sidebar-primary: 240 5.9% 10%;
+      --sidebar-primary-foreground: 0 0% 98%;
+      --sidebar-accent: 240 4.8% 95.9%;
+      --sidebar-accent-foreground: 240 5.9% 10%;
+      --sidebar-border: 220 13% 91%;
+      --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+  }
+
+  /* Light Theme - força manual - #FFFFFF */
+  .light {
+    --background: 0 0% 100% !important;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 59 130 246;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 59 130 246;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Dark Theme - força manual - #0D0D0D */
   .dark {
-    --background: 15 23 42;
-    --foreground: 248 250 252;
+    --background: 0 0% 5.1% !important;
+    --foreground: 0 0% 95%;
 
-    --card: 30 41 59;
-    --card-foreground: 248 250 252;
+    --card: 0 0% 6.7%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 30 41 59;
-    --popover-foreground: 248 250 252;
+    --popover: 0 0% 6.7%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 96 165 250;
-    --primary-foreground: 15 23 42;
+    --primary: 59 130 246;
+    --primary-foreground: 0 0% 95%;
 
-    --secondary: 51 65 85;
-    --secondary-foreground: 248 250 252;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 85%;
 
-    --muted: 51 65 85;
-    --muted-foreground: 148 163 184;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 51 65 85;
-    --accent-foreground: 248 250 252;
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 95%;
 
-    --destructive: 248 113 113;
-    --destructive-foreground: 15 23 42;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 51 65 85;
-    --input: 51 65 85;
-    --ring: 96 165 250;
+    --border: 0 0% 15%;
+    --input: 0 0% 12%;
+    --ring: 59 130 246;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -125,6 +209,64 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    font-family: Roboto, sans-serif;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Força a cor específica para o tema claro manual */
+  .light body {
+    background-color: #FFFFFF !important;
+  }
+
+  /* Força a cor específica para o tema escuro manual */
+  .dark body {
+    background-color: #0D0D0D !important;
+  }
+}
+
+/* ===== DESIGN FIXO DOS ATALHOS - NÃO ALTERAR ===== */
+/* 
+ * IMPORTANTE: Estas classes definem o design FINAL dos cards de atalho
+ * baseado na imagem de referência fornecida pelo usuário.
+ * 
+ * ⚠️  NÃO MODIFICAR essas classes sem consultar o usuário primeiro!
+ * ⚠️  O design deve permanecer EXATAMENTE como mostrado na imagem
+ * ⚠️  TODOS OS ATALHOS DEVEM TER O GRADIENTE VERDE IGUAL AO "CHAMA NO ZAP"
+ * 
+ * Características FIXAS e IMUTÁVEIS:
+ * - Gradiente verde FIXO (#10b981 → #059669) para TODOS os atalhos
+ * - Altura fixa de 128px (h-32)
+ * - Ícone circular com fundo branco/transparente
+ * - Texto branco, centralizado, máximo 2 linhas
+ * - Efeito hover com escala e sombra
+ * - CONSISTÊNCIA: Card e Modal usam o MESMO gradiente verde
+ */
+@layer components {
+  .shortcut-card {
+    @apply relative rounded-xl p-4 cursor-pointer transition-all duration-300;
+    @apply hover:scale-105 hover:shadow-card-hover h-36 min-h-40;
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+  }
+
+  .shortcut-card-content {
+    @apply flex flex-col items-center justify-center text-center h-full space-y-3;
+  }
+
+  .shortcut-card-icon {
+    @apply w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm flex-shrink-0;
+  }
+
+  .shortcut-card-icon-emoji {
+    @apply text-2xl;
+  }
+
+  .shortcut-card-title {
+    @apply text-white font-medium text-sm leading-tight flex-1 flex items-center justify-center text-center overflow-hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    text-overflow: ellipsis !important;
   }
 }
