@@ -59,6 +59,12 @@ const Footer = () => {
                   Mídia Kit
                 </span>
               {/*</a>*/}
+              <a 
+                href="https://wa.me/5511916111900?text=Fala%20Fer!%20Queria%20trocar%20uma%20ideia%20contigo%2C%20sobre%20automa%C3%A7%C3%B5es%20e%20IA" 
+                className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+              >
+                Contato
+              </a>
             </nav>
           </div>
 
