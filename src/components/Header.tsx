@@ -14,13 +14,7 @@ const Header = () => {
   const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setInputValue(value);
-    
-    // Debounce a pesquisa
-    const timeoutId = setTimeout(() => {
-      setSearchTerm(value);
-    }, 300);
-    
-    return () => clearTimeout(timeoutId);
+    setSearchTerm(value);
   }, [setSearchTerm]);
 
   const toggleTheme = () => {
