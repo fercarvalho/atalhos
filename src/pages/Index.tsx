@@ -16,6 +16,31 @@ import { useVideoModal } from "@/hooks/useVideoModal";
 import { useWebsiteModal } from "@/hooks/useWebsiteModal";
 import { shortcuts, tutorials } from "@/data/shortcuts";
 
+// Helper function to highlight search terms in text
+const highlightText = (text: string, searchTerm: string) => {
+  if (!searchTerm.trim()) return text;
+  
+  const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+  const parts = text.split(regex);
+  
+  return parts.map((part, index) => 
+    regex.test(part) ? (
+      <mark key={index} className="bg-yellow-200 text-yellow-800 px-1 rounded">
+        {part}
+      </mark>
+    ) : part
+  );
+};
+
+// Helper function to highlight text in featured items (handles both string and JSX titles)
+const highlightFeaturedTitle = (title: any, searchTerm: string) => {
+  if (typeof title === 'string') {
+    return highlightText(title, searchTerm);
+  }
+  // If it's JSX (like the Poupa.ai title), return as is
+  return title;
+};
+
 function Index() {
   const { filteredData, filteredTutorials, filteredFeatured, isSearching, searchTerm, totalResults } = useSearch();
   const { 
@@ -184,63 +209,63 @@ function Index() {
                           return {
                             background: "bg-gradient-to-br from-black via-gray-900 to-gray-800",
                             icon: <SiTiktok className="w-8 h-8 text-white" />,
-                            displayTitle: title
+                            displayTitle: highlightText(title, searchTerm)
                           };
                         }
                         if (title.includes("Instagram")) {
                           return {
                             background: "bg-gradient-to-br from-pink-500 to-pink-700",
                             icon: <Instagram className="w-8 h-8 text-white" />,
-                            displayTitle: title
+                            displayTitle: highlightText(title, searchTerm)
                           };
                         }
                         if (title.includes("Youtube")) {
                           return {
                             background: "bg-gradient-to-br from-red-500 to-red-700",
                             icon: <Youtube className="w-8 h-8 text-white" />,
-                            displayTitle: title
+                            displayTitle: highlightText(title, searchTerm)
                           };
                         }
                         if (title.includes("ESPECIAL Poupa.ai")) {
                           return {
                             background: "bg-gray-50",
                             icon: <PiggyBank className="w-8 h-8 text-white" />,
-                            displayTitle: title
+                            displayTitle: highlightText(title, searchTerm)
                           };
                         }
                         if (title.includes("Atalhos de IA")) {
                           return {
                             background: "bg-gradient-to-br from-cyan-500 to-blue-500",
                             icon: <Bot className="w-8 h-8 text-white" />,
-                            displayTitle: title
+                            displayTitle: highlightText(title, searchTerm)
                           };
                         }
                         if (title.includes("Automações")) {
                           return {
                             background: "bg-gradient-to-br from-orange-500 to-red-500",
                             icon: <Settings className="w-8 h-8 text-white" />,
-                            displayTitle: title
+                            displayTitle: highlightText(title, searchTerm)
                           };
                         }
                         if (title.includes("Atalhos para WhatsApp")) {
                           return {
                             background: "bg-gradient-whatsapp",
                             icon: <MessageCircle className="w-8 h-8 text-white" />,
-                            displayTitle: title
+                            displayTitle: highlightText(title, searchTerm)
                           };
                         }
                         if (title.includes("Tutoriais")) {
                           return {
                             background: "bg-gradient-to-br from-purple-500 to-indigo-600",
                             icon: <PlayCircle className="w-8 h-8 text-white" />,
-                            displayTitle: title
+                            displayTitle: highlightText(title, searchTerm)
                           };
                         }
                         // Default fallback
                         return {
                           background: "bg-gradient-to-br from-blue-500 to-purple-600",
                           icon: <Bot className="w-8 h-8 text-white" />,
-                          displayTitle: title
+                          displayTitle: highlightText(title, searchTerm)
                         };
                       };
 
@@ -333,10 +358,44 @@ function Index() {
                   </h3>
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                     {filteredData.map((shortcut) => (
-                      <ShortcutCard
-                        key={shortcut.id}
-                        shortcut={shortcut}
-                      />
+                      <div key={shortcut.id} onClick={() => openModal(shortcut)} className="shortcut-card group">
+                        {/* Badge AI no canto superior direito */}
+                        {shortcut.isAI && (
+                          <div className="absolute top-2 right-2 z-10">
+                            <div className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white border-0 text-xs font-bold shadow-lg px-2 py-1 rounded-full">
+                              AI
+                            </div>
+                          </div>
+                        )}
+                        
+                        {/* Badge Poupa.ai no canto superior esquerdo */}
+                        {shortcut.isPoupaAi && (
+                          <div className="absolute top-2 left-2 z-10">
+                            <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0 text-xs font-bold shadow-lg px-2 py-1 rounded-full">
+                              Poupa.ai
+                            </div>
+                          </div>
+                        )}
+                        
+                        {/* Badge Automação no canto inferior esquerdo */}
+                        {shortcut.isAutomacao && (
+                          <div className="absolute bottom-2 left-2 z-10">
+                            <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white border-0 text-xs font-bold shadow-lg px-2 py-1 rounded-full">
+                              Automação
+                            </div>
+                          </div>
+                        )}
+                        
+                        <div className="shortcut-card-content">
+                          <div className="shortcut-card-icon">
+                            <span className="shortcut-card-icon-emoji">{shortcut.icon || '⚡'}</span>
+                          </div>
+                          
+                          <h4 className="shortcut-card-title">
+                            {highlightText(shortcut.title, searchTerm)}
+                          </h4>
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -353,11 +412,19 @@ function Index() {
                       <div
                         key={tutorial.id}
                         onClick={() => openVideoModal(tutorial)}
-                        className="cursor-pointer"
+                        className="group cursor-pointer"
                       >
-                        <TutorialCard
-                          title={tutorial.title}
-                          image={tutorial.image || "tutorial01.jpg"} />
+                        <div className="relative overflow-hidden rounded-xl aspect-video mb-3 transition-transform duration-300 group-hover:scale-105">
+                          <img 
+                            src={tutorial.image || "tutorial01.jpg"} 
+                            alt={tutorial.title}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                        <h4 className="text-foreground font-medium text-sm leading-tight group-hover:text-ios-blue transition-colors">
+                          {highlightText(tutorial.title, searchTerm)}
+                        </h4>
                       </div>
                     ))}
                   </div>
