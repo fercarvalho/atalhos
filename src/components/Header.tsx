@@ -62,7 +62,7 @@ const Header = () => {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
                 <Input
                   type="search"
-                  placeholder="Buscar atalhos..."
+                  placeholder="Buscar..."
                   value={inputValue}
                   onChange={handleSearchChange}
                   className="pl-10 bg-muted/50 backdrop-blur-sm border-0 focus:ring-2 focus:ring-ios-blue/20 w-full transition-colors hover:bg-muted/60"
