@@ -92,7 +92,7 @@ export const shortcuts: Shortcut[] = [
     category: "Financeiro",
     icon: "📩",
     gradient: "bg-gradient-whatsapp",
-    icloudUrl: "https://www.icloud.com/shortcuts/b25eee59ed2c419aab127e36425b665b",
+    icloudUrl: "https://www.icloud.com/shortcuts/b1897534882140c1842f9b0a49bf4fcc",
     minIOS: "16.0",
     updatedAt: "2025-08-31",
     isPremium: false,
