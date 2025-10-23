@@ -30,7 +30,7 @@ const ShortcutModal: React.FC<ShortcutModalProps> = ({
   const getVersion = () => {
     // Exceção específica: "Adicionar Despesa de Cartão (Automático)" = versão 2.0
     if (shortcut.title === "Adicionar Despesa de Cartão (Automático)") {
-      return "2.0";
+      return "3.0";
     }
     // Cards com badge AI = versão 3.0 (prioridade máxima)
     if (shortcut.isAI) {
